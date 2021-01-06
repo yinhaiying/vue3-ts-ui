@@ -7,9 +7,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref,computed } from "vue";
+import { defineComponent,computed } from "vue";
+import {ISwitchProps} from "./interface"
 export default defineComponent({
-  name: "",
+  name: "sea-switch",
   components: {},
   props: {
     value: {
@@ -25,7 +26,7 @@ export default defineComponent({
       default:"#ccc"
     }
   },
-  setup(props, context) {
+  setup(props: ISwitchProps, context) {
     const toggle = () => {
       context.emit("update:value", !props.value);
     };
