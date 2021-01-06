@@ -1,11 +1,12 @@
 <template>
   <div class="page">
-    <Dialog></Dialog>
+    <Dialog :visibility = "visibility"></Dialog>
+    <button @click = "toggle">toggle</button>
   </div>
 </template>
 
 <script lang='ts'>
-import {defineComponent} from 'vue'
+import {defineComponent,ref} from 'vue'
 import Dialog from "../lib/dialog/Dialog.vue"
 export default defineComponent({
   name:'',
@@ -14,7 +15,14 @@ export default defineComponent({
   },
   props: {},
   setup(){
-    console.log('demo')
+    const visibility = ref(false);
+    const toggle = () => {
+      visibility.value = !visibility.value;
+    }
+    return {
+      visibility,
+      toggle
+    }
   }
 })
 </script>
