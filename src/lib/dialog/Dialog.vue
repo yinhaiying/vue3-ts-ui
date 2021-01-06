@@ -5,16 +5,19 @@
     <!-- 内容区域 -->
     <div class="dialog-wrapper">
       <div class="dailog-content">
-        <header>标题
+        <header>
+          <slot name = "title">
+              <span class = "sea-dialog-title">
+                {{ title }}
+              </span>
+          </slot>
           <span @click = "handleClose">X</span>
         </header>
         <main>
-          <p>内容一</p>
-          <p>内容二</p>
+          <slot name = "default"></slot>
         </main>
         <footer>
-          <button @click = "handleCancel">取消</button>
-          <button @click = "handleOk">确认</button>
+          <slot name = "footer"></slot>
         </footer>
       </div>
     </div>
@@ -31,6 +34,10 @@ export default defineComponent({
     closeOnClickModal:{
       type:Boolean,
       deafult:true
+    },
+    title:{
+      type:String,
+      default:"标题"
     }
   },
   setup(props,context) {
@@ -43,18 +50,9 @@ export default defineComponent({
        handleClose();
      }
    }
-
-   const handleCancel = () => {
-     context.emit("cancel");
-   }
-   const handleOk = () => {
-     context.emit("ok");
-   }
    return {
      handleClose,
      onClickModal,
-     handleCancel,
-     handleOk
    }
   },
 });
