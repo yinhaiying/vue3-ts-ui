@@ -1,6 +1,7 @@
 <template>
   <div class="switch-demo">
-    <Switch :value = "y" @input = "change"></Switch>
+    <!-- <Switch :value = "checked" @update:value = "change"></Switch> -->
+    <Switch v-model:value = "checked" ></Switch>
   </div>
 </template>
 
@@ -14,13 +15,9 @@ export default defineComponent({
   },
   props: {},
   setup(){
-    const y = ref(true);
-    const change = (value:boolean) => {
-      y.value = value;
-    };
+    const checked = ref(true);
     return {
-      y,
-      change
+      checked
     }
   }
 })
