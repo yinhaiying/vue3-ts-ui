@@ -1,11 +1,11 @@
 <template>
   <div class="switch-demo">
-    <Switch></Switch>
+    <Switch :value = "y" @input = "change"></Switch>
   </div>
 </template>
 
 <script lang='ts'>
-import {defineComponent} from 'vue'
+import {defineComponent,ref} from 'vue'
 import Switch from  "../lib/Switch.vue"
 export default defineComponent({
   name:'SwitchDemo',
@@ -14,7 +14,14 @@ export default defineComponent({
   },
   props: {},
   setup(){
-    console.log("11")
+    const y = ref(true);
+    const change = (value:boolean) => {
+      y.value = value;
+    };
+    return {
+      y,
+      change
+    }
   }
 })
 </script>
