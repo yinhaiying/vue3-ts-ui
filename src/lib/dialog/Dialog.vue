@@ -18,7 +18,10 @@
             <slot name="default"></slot>
           </main>
           <footer>
-            <slot name="footer"></slot>
+            <slot name="footer">
+              <button @click="handleCancel">取消</button>
+              <button @click="handleOk">确认</button>
+            </slot>
           </footer>
         </div>
       </div>
@@ -27,7 +30,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
+type beforeFuncType = () => boolean;
 export default defineComponent({
   name: "Dialog",
   components: {},
@@ -41,20 +45,43 @@ export default defineComponent({
       type: String,
       default: "标题",
     },
+    beforeOk: {
+      type: Function as PropType<beforeFuncType>,
+      default: () => {
+        return true;
+      },
+    },
+    beforeCancel: {
+      type: Function as PropType<beforeFuncType>,
+      default: () => {
+        return true;
+      },
+    },
   },
   setup(props, context) {
     const handleClose = () => {
       context.emit("update:visibility", false);
     };
-
     const onClickModal = () => {
       if (props.closeOnClickModal) {
+        handleClose();
+      }
+    };
+    const handleCancel = () => {
+      if (props.beforeCancel && props.beforeCancel()) {
+        handleClose();
+      }
+    };
+    const handleOk = () => {
+      if (props.beforeOk && props.beforeOk()) {
         handleClose();
       }
     };
     return {
       handleClose,
       onClickModal,
+      handleCancel,
+      handleOk,
     };
   },
 });
