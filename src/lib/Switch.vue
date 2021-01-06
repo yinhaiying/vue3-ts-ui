@@ -1,19 +1,26 @@
 <template>
   <div class="switch-page">
-    <button>
+    <button :class="{ checked }" @click = "toggle">
       <span></span>
     </button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "",
   components: {},
   props: {},
   setup() {
-    console.log("1");
+    const checked = ref(false);
+    const toggle = () => {
+      checked.value = !checked.value;
+    }
+    return {
+      checked,
+      toggle
+    };
   },
 });
 </script>
@@ -24,7 +31,7 @@ button {
   height: $h;
   width: $h * 2;
   border: none;
-  background: #0364ff;
+  background: #cccccc;
   border-radius: $h/2;
   position: relative;
 }
@@ -37,7 +44,8 @@ span {
   background: #fff;
   border-radius: $h2/2;
 }
-button:hover {
+button.checked {
+  background: #0364ff;
   & > span {
     left: calc(100% - #{$h2} - 2px);
   }
