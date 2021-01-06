@@ -1,27 +1,29 @@
 <template>
-  <template v-if = "visibility">
-    <!-- 遮罩层 -->
-    <div class="dialog-overlay" @click = "onClickModal"></div>
-    <!-- 内容区域 -->
-    <div class="dialog-wrapper">
-      <div class="dailog-content">
-        <header>
-          <slot name = "title">
-              <span class = "sea-dialog-title">
+  <Teleport to="body">
+    <template v-if="visibility">
+      <!-- 遮罩层 -->
+      <div class="dialog-overlay" @click="onClickModal"></div>
+      <!-- 内容区域 -->
+      <div class="dialog-wrapper">
+        <div class="dailog-content">
+          <header>
+            <slot name="title">
+              <span class="sea-dialog-title">
                 {{ title }}
               </span>
-          </slot>
-          <span @click = "handleClose">X</span>
-        </header>
-        <main>
-          <slot name = "default"></slot>
-        </main>
-        <footer>
-          <slot name = "footer"></slot>
-        </footer>
+            </slot>
+            <span @click="handleClose">X</span>
+          </header>
+          <main>
+            <slot name="default"></slot>
+          </main>
+          <footer>
+            <slot name="footer"></slot>
+          </footer>
+        </div>
       </div>
-    </div>
-  </template>
+    </template>
+  </Teleport>
 </template>
 
 <script lang="ts">
@@ -30,30 +32,30 @@ export default defineComponent({
   name: "Dialog",
   components: {},
   props: {
-    visibility:Boolean,
-    closeOnClickModal:{
-      type:Boolean,
-      deafult:true
+    visibility: Boolean,
+    closeOnClickModal: {
+      type: Boolean,
+      deafult: true,
     },
-    title:{
-      type:String,
-      default:"标题"
-    }
+    title: {
+      type: String,
+      default: "标题",
+    },
   },
-  setup(props,context) {
-   const handleClose = () => {
-     context.emit("update:visibility",false);
-   };
+  setup(props, context) {
+    const handleClose = () => {
+      context.emit("update:visibility", false);
+    };
 
-   const onClickModal = () => {
-     if(props.closeOnClickModal){
-       handleClose();
-     }
-   }
-   return {
-     handleClose,
-     onClickModal,
-   }
+    const onClickModal = () => {
+      if (props.closeOnClickModal) {
+        handleClose();
+      }
+    };
+    return {
+      handleClose,
+      onClickModal,
+    };
   },
 });
 </script>
@@ -82,7 +84,7 @@ $border-color: #d9d9d9;
     box-shadow: 0 0 3px fade_out(black, 0.5);
     min-width: 15em;
     max-width: 90%;
-    width:520px;
+    width: 520px;
     & > header {
       padding: 12px 16px;
       border-bottom: 1px solid $border-color;
