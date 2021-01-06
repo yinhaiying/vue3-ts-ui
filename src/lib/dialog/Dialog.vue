@@ -1,5 +1,18 @@
 <template>
-  <div class="page">dialog</div>
+<!-- 遮罩层 -->
+  <div class="dialog-overlay"></div>
+<!-- 内容区域 -->
+  <div class="dialog-wrapper">
+    <header>标题</header>
+    <main>
+      <p>内容一</p>
+      <p>内容二</p>
+    </main>
+    <footer>
+      <button>取消</button>
+      <button>确认</button>
+    </footer>
+  </div>
 </template>
 
 <script lang='ts'>
