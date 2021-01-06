@@ -1,6 +1,8 @@
 <template>
   <div class="page">
-    <Dialog :visibility = "visibility"></Dialog>
+    <Dialog 
+      v-model:visibility = "visibility" 
+      :close-on-click-modal = "closeOnClickModal" @ok = "onOk" @cancel = "onCancel"></Dialog>
     <button @click = "toggle">toggle</button>
   </div>
 </template>
@@ -16,12 +18,23 @@ export default defineComponent({
   props: {},
   setup(){
     const visibility = ref(false);
+    const closeOnClickModal = ref(true);
     const toggle = () => {
       visibility.value = !visibility.value;
     }
+
+    const onOk = () => {
+       visibility.value = false;
+    }
+    const onCancel = () => {
+      visibility.value = false;
+    }
     return {
       visibility,
-      toggle
+      toggle,
+      closeOnClickModal,
+      onOk,
+      onCancel
     }
   }
 })

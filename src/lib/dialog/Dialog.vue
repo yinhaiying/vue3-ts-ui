@@ -1,18 +1,20 @@
 <template>
   <template v-if = "visibility">
     <!-- 遮罩层 -->
-    <div class="dialog-overlay"></div>
+    <div class="dialog-overlay" @click = "onClickModal"></div>
     <!-- 内容区域 -->
     <div class="dialog-wrapper">
       <div class="dailog-content">
-        <header>标题</header>
+        <header>标题
+          <span @click = "handleClose">X</span>
+        </header>
         <main>
           <p>内容一</p>
           <p>内容二</p>
         </main>
         <footer>
-          <button>取消</button>
-          <button>确认</button>
+          <button @click = "handleCancel">取消</button>
+          <button @click = "handleOk">确认</button>
         </footer>
       </div>
     </div>
@@ -25,10 +27,35 @@ export default defineComponent({
   name: "Dialog",
   components: {},
   props: {
-    visibility:Boolean
+    visibility:Boolean,
+    closeOnClickModal:{
+      type:Boolean,
+      deafult:true
+    }
   },
-  setup() {
-    console.log("111");
+  setup(props,context) {
+   const handleClose = () => {
+     context.emit("update:visibility",false);
+   };
+
+   const onClickModal = () => {
+     if(props.closeOnClickModal){
+       handleClose();
+     }
+   }
+
+   const handleCancel = () => {
+     context.emit("cancel");
+   }
+   const handleOk = () => {
+     context.emit("ok");
+   }
+   return {
+     handleClose,
+     onClickModal,
+     handleCancel,
+     handleOk
+   }
   },
 });
 </script>
