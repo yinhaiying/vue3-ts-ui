@@ -1,7 +1,7 @@
 <template>
   <div class="switch-demo">
     <!-- <Switch :value = "checked" @update:value = "change"></Switch> -->
-    <Switch v-model:value = "checked" ></Switch>
+    <Switch v-model:value = "checked" :active-color = "activeColor" :inactive-color = "inactiveColor"></Switch>
   </div>
 </template>
 
@@ -16,8 +16,12 @@ export default defineComponent({
   props: {},
   setup(){
     const checked = ref(true);
+    const activeColor = ref("red");
+    const inactiveColor = ref("green");
     return {
-      checked
+      checked,
+      activeColor,
+      inactiveColor
     }
   }
 })
