@@ -7,9 +7,11 @@
         :key="index"
         :class="{ active: activeIndex === index }"
         @click="handleChange(index)"
+        :ref="setItemRef"
       >
         {{ title }}
       </div>
+      <div class="sea-tabs-nav-indicator" ref="indicatorRef"></div>
     </div>
     <div class="sea-tabs-content">
       <!-- <slot></slot> -->
@@ -29,6 +31,7 @@ import {
   VNode,
   RendererNode,
   RendererElement,
+  onMounted,
 } from "vue";
 import TabPanel from "./tab-panel.vue";
 export default defineComponent({
@@ -49,6 +52,8 @@ export default defineComponent({
         [key: string]: any;
       }
     >[] = [];
+    const activatedDom = ref<HTMLDivElement>();
+    const indicatorRef = ref<HTMLDivElement>();
     const activeIndex = ref(0);
     const titles = ref<string[]>([]);
     const currentComponent = computed(() => {
@@ -58,6 +63,18 @@ export default defineComponent({
           return true;
         }
       });
+    });
+    const setItemRef = (el: HTMLDivElement) => {
+      if (el.classList.contains("active")) {
+        activatedDom.value = el;
+      }
+    };
+    onMounted(() => {
+      const width = activatedDom.value?.getBoundingClientRect().width;
+      console.log("width:",width)
+      if (indicatorRef.value) {
+        indicatorRef.value.style.width = width + "px";
+      }
     });
 
     if (context.slots.default) {
@@ -74,7 +91,7 @@ export default defineComponent({
     }
 
     const handleChange = (index: number) => {
-      context.emit("update:active",  defaults[index]?.props?.name);
+      context.emit("update:active", defaults[index]?.props?.name);
     };
     return {
       defaults,
@@ -82,6 +99,9 @@ export default defineComponent({
       currentComponent,
       activeIndex,
       handleChange,
+      setItemRef,
+      activatedDom,
+      indicatorRef,
     };
   },
 });
@@ -93,6 +113,7 @@ $border-bottom: #666;
   &-nav {
     display: flex;
     color: $color;
+    position: relative;
     border-bottom: 1px solid $border-bottom;
     &-item {
       padding: 8px 0;
@@ -110,6 +131,15 @@ $border-bottom: #666;
       &.active {
         color: #0364ff;
       }
+    }
+    &-indicator {
+      position: absolute;
+      left: 0;
+      background-color: #0364ff;
+      height: 2px;
+      bottom: 0px;
+      box-sizing: border-box;
+      z-index: 1;
     }
   }
   &-content {
