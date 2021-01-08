@@ -4,6 +4,7 @@ import ButtonDemo from "../components/ButtonDemo.vue";
 import DocDemo from "../components/DocDemo.vue";
 import SwitchDemo from "../components/SwitchDemo.vue";
 import DialogDemo from "../components/DialogDemo.vue";
+import TabsDemo from "../components/TabsDemo.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -19,6 +20,7 @@ const routes: Array<RouteRecordRaw> = [
       { path: "switch", component: SwitchDemo },
       { path: "button", component: ButtonDemo },
       { path: "dialog", component: DialogDemo },
+      { path: "tabs", component: TabsDemo },
     ],
   }
 ]
