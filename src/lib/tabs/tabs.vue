@@ -1,8 +1,7 @@
 <template>
   <div class="page">
-    <component :is = "defaults[0]" ></component>
-    <component :is = "defaults[1]" ></component>
-    <component :is = "defaults[2]" ></component>
+    <div v-for = "(title,index) in titles" :key = "index">{{title}}</div>
+    <slot></slot>
   </div>
 </template>
 
@@ -14,19 +13,24 @@ export default defineComponent({
   components: {},
   props: {},
   setup(props,context){
+    let defaults;
+    let titles
     if(context.slots.default){
-      let defaults = context.slots.default();
-      const isTabPanel = defaults.forEach((tag) => {
+      defaults = context.slots.default();
+      console.log("defaults:",defaults)
+      defaults.forEach((tag) => {
        if(tag.type !== TabPanel){
          throw new Error("Tabs的子元素必须是TabPanel");
        }
       });
-      console.log("isTabPanel:",isTabPanel);
+      titles = defaults.map((tag) => {
+        return tag.props && tag.props.title;
+      })
     }
     return {
-      defaults
+      defaults,
+      titles
     };
-    
   }
 })
 </script>

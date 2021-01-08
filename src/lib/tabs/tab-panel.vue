@@ -1,5 +1,7 @@
 <template>
-  <div class="tab-panel">tab-panel</div>
+  <div class="tab-panel">
+    <slot></slot>
+  </div>
 </template>
 
 <script lang='ts'>
