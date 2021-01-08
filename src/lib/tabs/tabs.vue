@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="sea-tabs-nav">
+    <div class="sea-tabs-nav" ref="navRef">
       <div
         class="sea-tabs-nav-item"
         v-for="(title, index) in titles"
@@ -32,6 +32,8 @@ import {
   RendererNode,
   RendererElement,
   onMounted,
+  onUnmounted,
+  onUpdated,
 } from "vue";
 import TabPanel from "./tab-panel.vue";
 export default defineComponent({
@@ -54,6 +56,7 @@ export default defineComponent({
     >[] = [];
     const activatedDom = ref<HTMLDivElement>();
     const indicatorRef = ref<HTMLDivElement>();
+    const navRef = ref<HTMLDivElement>();
     const activeIndex = ref(0);
     const titles = ref<string[]>([]);
     const currentComponent = computed(() => {
@@ -69,14 +72,22 @@ export default defineComponent({
         activatedDom.value = el;
       }
     };
-    onMounted(() => {
+    // 更新样式
+    const setStyle = () => {
       const width = activatedDom.value?.getBoundingClientRect().width;
-      console.log("width:",width)
+      const activatedDomLeft = activatedDom.value?.getBoundingClientRect().left;
+      const navLeft = navRef.value?.getBoundingClientRect().left;
+      console.log("activatedDomLeft", activatedDomLeft);
+      console.log("navLeft", navLeft);
       if (indicatorRef.value) {
         indicatorRef.value.style.width = width + "px";
+        if (navLeft && activatedDomLeft) {
+          indicatorRef.value.style.left = activatedDomLeft - navLeft + "px";
+        }
       }
-    });
-
+    };
+    onMounted(setStyle);
+    onUpdated(setStyle);
     if (context.slots.default) {
       defaults = context.slots.default();
       defaults.forEach((tag) => {
@@ -102,6 +113,7 @@ export default defineComponent({
       setItemRef,
       activatedDom,
       indicatorRef,
+      navRef,
     };
   },
 });
