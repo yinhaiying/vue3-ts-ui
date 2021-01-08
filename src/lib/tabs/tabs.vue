@@ -21,7 +21,12 @@ import TabPanel from "./tab-panel.vue";
 export default defineComponent({
   name: "",
   components: {},
-  props: {},
+  props: {
+    active:{
+      type:String,
+      require:true
+    }
+  },
   setup(props, context) {
     let defaults;
     let titles;

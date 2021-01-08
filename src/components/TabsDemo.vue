@@ -1,10 +1,10 @@
 <template>
   <div class="tabs-demo">
     <h1>tabs示例一</h1>
-      <tabs>
-          <tab-panel title = "导航一">体育</tab-panel>
-          <tab-panel title = "导航二">新闻</tab-panel>
-          <tab-panel title = "导航三">娱乐</tab-panel>
+      <tabs v-model:active = "active">
+          <tab-panel title = "导航一" name = "sports">体育</tab-panel>
+          <tab-panel title = "导航二" name = "news">新闻</tab-panel>
+          <tab-panel title = "导航三" name = "music">音乐</tab-panel>
       </tabs>  
   </div>
 </template>
@@ -13,6 +13,7 @@
 import Tabs from "../lib/tabs/tabs.vue";
 import TabPanel from "../lib/tabs/tab-panel.vue";
 import {defineComponent} from 'vue'
+import {ref} from "vue";
 export default defineComponent({
   name:'',
   components: {
@@ -21,7 +22,10 @@ export default defineComponent({
   },
   props: {},
   setup(){
-      console.log("tabs-demo");
+      const active = ref("sports");
+      return {
+        active
+      }
   }
 })
 </script>
