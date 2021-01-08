@@ -5,19 +5,31 @@
         class="sea-tabs-nav-item"
         v-for="(title, index) in titles"
         :key="index"
+        :class="{ active: activeIndex === index }"
+        @click="handleChange(index)"
       >
         {{ title }}
       </div>
     </div>
     <div class="sea-tabs-content">
       <!-- <slot></slot> -->
-      <component :is="currentComponent"></component>
+      <component
+        :is="currentComponent"
+        :key="currentComponent.props.name"
+      ></component>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import {
+  defineComponent,
+  ref,
+  computed,
+  VNode,
+  RendererNode,
+  RendererElement,
+} from "vue";
 import TabPanel from "./tab-panel.vue";
 export default defineComponent({
   name: "",
@@ -28,34 +40,48 @@ export default defineComponent({
       require: true,
     },
   },
+  emits: ["update:active"],
   setup(props, context) {
-    let defaults;
+    let defaults: VNode<
+      RendererNode,
+      RendererElement,
+      {
+        [key: string]: any;
+      }
+    >[] = [];
+    const activeIndex = ref(0);
     const titles = ref<string[]>([]);
-    const currentComponent = ref();
+    const currentComponent = computed(() => {
+      return defaults.find((tag, index) => {
+        if (tag.props && tag.props.name === props.active) {
+          activeIndex.value = index;
+          return true;
+        }
+      });
+    });
+
     if (context.slots.default) {
-      
       defaults = context.slots.default();
       defaults.forEach((tag) => {
         if (tag.type !== TabPanel) {
           throw new Error("Tabs的子元素必须是TabPanel");
         }
       });
-      // 获取当前的组件
-      currentComponent.value = defaults.find((tag) => {
-        if (tag.props) {
-          return tag.props.name === props.active;
-        }
-      });
-      console.log("currentComponent:", currentComponent);
       // 获取nav
       titles.value = defaults.map((tag) => {
         return tag.props && tag.props.title;
       });
     }
+
+    const handleChange = (index: number) => {
+      context.emit("update:active",  defaults[index]?.props?.name);
+    };
     return {
       defaults,
       titles,
-      currentComponent
+      currentComponent,
+      activeIndex,
+      handleChange,
     };
   },
 });
@@ -85,6 +111,9 @@ $border-bottom: #666;
         color: #0364ff;
       }
     }
+  }
+  &-content {
+    padding: 8px 0 0 8px;
   }
 }
 </style>
