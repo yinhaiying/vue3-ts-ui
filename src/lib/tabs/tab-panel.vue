@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-panel"></div>
+  <div class="tab-panel">tab-panel</div>
 </template>
 
 <script lang='ts'>
