@@ -27,7 +27,7 @@
 </template>
 <script lang="ts">
 import TopNav from "../components/Topnav.vue";
-import { defineComponent,inject,Ref } from "vue";
+import { defineComponent, inject, Ref } from "vue";
 
 export default defineComponent({
   name: "Home",
@@ -41,19 +41,26 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
+$aside-index: 10;
 .layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
   > .nav {
     flex-shrink: 0;
+    background: linear-gradient(
+      145deg,
+      rgba(227, 255, 253, 1) 0%,
+      rgba(183, 233, 230, 1) 100%
+    );
+    z-index: 11;
   }
   > .content {
     flex-grow: 1;
-    padding-top: 32px;
-    padding-left: 182px;
+    padding-top: 60px;
+    padding-left: 156px;
     @media (max-width: 500px) {
-      padding-left: 0; 
+      padding-left: 0;
     }
   }
 }
@@ -65,24 +72,33 @@ export default defineComponent({
   > main {
     flex-grow: 1;
     padding: 16px;
-    background: #fff;
+    background: white;
   }
 }
 aside {
-  background: lightblue;
+  background: rgba(183, 233, 230, 1);
   width: 150px;
-  padding: 16px;
+  padding: 16px 0;
   position: fixed;
   top: 0;
   left: 0;
   padding-top: 70px;
   height: 100%;
+  z-index: $aside-index;
   > h2 {
     margin-bottom: 4px;
+    padding: 0 16px;
   }
   > ol {
     > li {
-      padding: 4px 0;
+      > a {
+        display: block;
+        padding: 4px 16px;
+        text-decoration: none;
+      }
+      .router-link-active {
+        background: white;
+      }
     }
   }
 }

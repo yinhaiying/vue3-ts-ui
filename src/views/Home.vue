@@ -5,7 +5,7 @@
       <h1 class="title">Vue3UI组件库</h1>
       <h2 class="subtitle">一个厉害的 UI 框架</h2>
       <p class="actions">
-        <a href="https://github.com">GitHub</a>
+        <a href="https://github.com/yinhaiying/vue3-ts-ui">GitHub</a>
         <router-link to="/doc">开始</router-link>
       </p>
     </div>
@@ -63,6 +63,7 @@ $color: #026460;
     rgba(227, 255, 253, 1) 0%,
     rgba(183, 233, 230, 1) 100%
   );
+  clip-path: ellipse(80% 60% at 50% 40%);
 }
 .banner {
   padding: 100px 0;

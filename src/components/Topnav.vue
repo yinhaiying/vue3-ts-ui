@@ -1,26 +1,25 @@
 <template>
-  <div class="tap-nav-page">
-    <div class="topnav">
-      <div class="logo">
-        <div class="logo-icon">
-          <svg class="icon">
-            <use xlink:href="#icon-sea"></use>
-          </svg>
-        </div>
-        <div class="name">Sea.js</div>
+  <div class="topnav">
+    <div class="logo" @click = "onClick">
+      <div class="logo-icon">
+        <svg class="icon">
+          <use xlink:href="#icon-sea"></use>
+        </svg>
       </div>
-      <ul class="menu">
-        <li>菜单1</li>
-        <li>菜单2</li>
-      </ul>
-      <span class="toggleAside" @click="toggleMenu"></span>
+      <div class="name">Sea.js</div>
     </div>
-
+    <ul class="menu">
+      <li>
+        <router-link to="/doc/switch">文档</router-link>
+      </li>
+    </ul>
+    <span class="toggleAside" @click="toggleMenu"></span>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, inject, Ref } from "vue";
+import {useRouter} from "vue-router";
 export default defineComponent({
   name: "HelloWorld",
   setup() {
@@ -30,7 +29,11 @@ export default defineComponent({
         menuVisible.value = !menuVisible.value;
       }
     };
-    return { toggleMenu };
+    const router = useRouter();
+    const onClick = () => {
+      router.push("/")
+    }
+    return { toggleMenu,onClick };
   },
 });
 </script>
@@ -62,6 +65,7 @@ export default defineComponent({
     margin-left: 20px;
     display: flex;
     align-items: center;
+    cursor:pointer;
     // animation:circle 3s infinite linear;
     .logo-icon {
       > svg {
@@ -105,5 +109,4 @@ export default defineComponent({
     }
   }
 }
-
 </style>
