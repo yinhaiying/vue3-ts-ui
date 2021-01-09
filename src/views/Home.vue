@@ -96,29 +96,54 @@ $color: #026460;
 
 .intro {
   .features {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
-    
+    // justify-content: center;
+    // align-items: center;
     .item {
-      display:flex;
-      width:50%;
+      display: flex;
       justify-content: center;
-      align-items:center;
-      margin-top:40px;
+      align-items: center;
+      margin-top: 40px;
       > svg {
         width: 64px;
         height: 64px;
       }
-      .text{
-        margin-left:30px;
-        .title{
-          font-size:24px;
+      .text {
+        flex:1;
+        margin-left: 30px;
+        .title {
+          font-size: 24px;
         }
-        .desc{
-          font-size:16px;
-          color:rgba(0,0,0,.65)
+        .desc {
+          font-size: 16px;
+          color: rgba(0, 0, 0, 0.65);
         }
       }
+    }
+  }
+}
+</style>
+
+<style lang="scss" scoped>
+@media all and (max-width: 500px) {
+  .features {
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media all and (min-width: 500px) {
+  .features {
+    .item {
+      width: 50%;
+    }
+  }
+}
+@media all and (min-width: 1200px) {
+  .features {
+    .item {
+      width: 33%;
     }
   }
 }
