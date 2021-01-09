@@ -1,6 +1,6 @@
 <template>
   <div class="topnav">
-    <div class="logo" @click = "onClick">
+    <div class="logo" @click="onClick">
       <div class="logo-icon">
         <svg class="icon">
           <use xlink:href="#icon-sea"></use>
@@ -13,15 +13,27 @@
         <router-link to="/doc/switch">文档</router-link>
       </li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+    <svg
+      class="icon toggleAside"
+      v-if="toggleMenuButtonVisibility"
+      @click="toggleMenu"
+    >
+      <use xlink:href="#icon-menu"></use>
+    </svg>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, inject, Ref } from "vue";
-import {useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 export default defineComponent({
   name: "HelloWorld",
+  props: {
+    toggleMenuButtonVisibility: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     const menuVisible = inject<Ref<boolean>>("menuVisible"); // get
     const toggleMenu = () => {
@@ -31,9 +43,9 @@ export default defineComponent({
     };
     const router = useRouter();
     const onClick = () => {
-      router.push("/")
-    }
-    return { toggleMenu,onClick };
+      router.push("/");
+    };
+    return { toggleMenu, onClick };
   },
 });
 </script>
@@ -65,7 +77,7 @@ export default defineComponent({
     margin-left: 20px;
     display: flex;
     align-items: center;
-    cursor:pointer;
+    cursor: pointer;
     // animation:circle 3s infinite linear;
     .logo-icon {
       > svg {
@@ -90,7 +102,6 @@ export default defineComponent({
   > .toggleAside {
     width: 24px;
     height: 24px;
-    background: red;
     position: absolute;
     left: 16px;
     top: 50%;
