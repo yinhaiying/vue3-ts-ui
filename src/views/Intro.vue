@@ -1,17 +1,23 @@
 <template>
-  <div class="page">
-    Intro
-  </div>
+  <article class="markdown-body" >
+    <div  v-html = "content"></div>
+  </article>
 </template>
 
 <script lang='ts'>
-import {defineComponent} from 'vue'
+import {defineComponent,ref} from 'vue'
+import intro from "../docs/intro.md";
 export default defineComponent({
   name:'',
-  components: {},
+  components: {
+  },
   props: {},
   setup(){
-      console.log("intor")
+    const content = ref("");
+    content.value = intro;
+    return {
+      content
+    }
   }
 })
 </script>
