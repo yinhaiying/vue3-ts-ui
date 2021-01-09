@@ -39,19 +39,30 @@
           <p class="desc">所有组件遵循统一的颜色，字体等样式规范</p>
         </div>
       </div>
+      {{route}}
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import TopNav from "../components/Topnav.vue";
-import { defineComponent } from "vue";
-
+import { defineComponent, onBeforeUnmount, onMounted,ref } from "vue";
+import animate   from "../assets/js/bg-animate.js";
+import {useRoute} from "vue-router"
 export default defineComponent({
   name: "Home",
   components: {
     TopNav,
   },
+  setup(){
+    onMounted(() => {
+      animate();
+    }),
+    onBeforeUnmount(() => {
+      const cas = document.getElementById("cas");
+      cas?.remove();
+    });
+  }
 });
 </script>
 <style lang="scss" scoped>
