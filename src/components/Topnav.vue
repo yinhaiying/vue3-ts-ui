@@ -6,7 +6,7 @@
           <use xlink:href="#icon-sea"></use>
         </svg>
       </div>
-      <div class="name">Sea.js</div>
+      <div class="name">Sea </div>
     </div>
     <ul class="menu">
       <li>

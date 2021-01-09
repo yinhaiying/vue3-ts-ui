@@ -6,7 +6,7 @@
       <h2 class="subtitle">一个厉害的 UI 框架</h2>
       <p class="actions">
         <a href="https://github.com/yinhaiying/vue3-ts-ui">GitHub</a>
-        <router-link to="/doc">开始</router-link>
+        <router-link to="/doc">立即体验</router-link>
       </p>
     </div>
   </div>
@@ -46,7 +46,8 @@
 
 <script lang="ts">
 import TopNav from "../components/Topnav.vue";
-import { defineComponent, onBeforeUnmount, onMounted,ref } from "vue";
+import { defineComponent, onBeforeUnmount, onMounted } from "vue";
+//@ts-ignore
 import animate   from "../assets/js/bg-animate.js";
 import {useRoute} from "vue-router"
 export default defineComponent({

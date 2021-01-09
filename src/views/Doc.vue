@@ -3,6 +3,19 @@
     <top-nav class="nav" toggleMenuButtonVisibility = "true"/>
     <div class="content">
       <aside v-if="menuVisible">
+        <h2>Sea</h2>
+        <ol>
+          <li>
+            <router-link to = "/doc/intro">介绍</router-link>
+          </li>
+          <li>
+            <router-link to = "/doc/install">安装</router-link>
+          </li>
+          <li>
+            <router-link to = "/doc/get-started">快速上手</router-link>
+          </li>
+        </ol>
+
         <h2>组件列表</h2>
         <ol>
           <li>
@@ -58,7 +71,7 @@ $aside-index: 10;
   > .content {
     flex-grow: 1;
     padding-top: 60px;
-    padding-left: 156px;
+    padding-left: 240px;
     @media (max-width: 500px) {
       padding-left: 0;
     }
@@ -76,8 +89,8 @@ $aside-index: 10;
   }
 }
 aside {
-  background: rgba(183, 233, 230, 1);
-  width: 150px;
+
+  width: 240px;
   padding: 16px 0;
   position: fixed;
   top: 0;
@@ -85,9 +98,11 @@ aside {
   padding-top: 70px;
   height: 100%;
   z-index: $aside-index;
+  border-right:2px solid #F7F8FA;
   > h2 {
     margin-bottom: 4px;
     padding: 0 16px;
+    font-size:24px;
   }
   > ol {
     > li {
@@ -96,13 +111,26 @@ aside {
         padding: 4px 16px;
         text-decoration: none;
       }
-      .router-link-active {
-        background: white;
-      }
     }
   }
 }
 main {
   overflow: auto;
+}
+
+.router-link-active{
+  background:#0366ff;
+  background-color:rgba(3, 102, 255, 0.05);
+  color:#0366ff;
+  position:relative;
+  &:after{
+    position:absolute;
+    content:"";
+    width:2px;
+    background:#0366ff;
+    height:100%;
+    right:-2px;
+    top:0;
+  }
 }
 </style>
