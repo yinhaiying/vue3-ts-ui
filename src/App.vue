@@ -1,9 +1,7 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/doc">About</router-link>
+  <div id="page">
+    <router-view></router-view>
   </div>
-  <router-view/>
 </template>
 
 <script lang="ts">
