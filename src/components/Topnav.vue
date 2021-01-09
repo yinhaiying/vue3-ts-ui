@@ -36,6 +36,7 @@ export default defineComponent({
   z-index: 10;
   justify-content: center;
   align-items: center;
+  color:#28d1c9;
   > .logo {
     max-width: 6em;
     margin-right: auto;
