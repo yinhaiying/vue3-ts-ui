@@ -128,7 +128,9 @@ $color: #026460;
 <style lang="scss" scoped>
 @media all and (max-width: 500px) {
   .features {
-    width: 400px;
+    .item {
+      width: 100%;
+    }
     justify-content: center;
     align-items: center;
   }

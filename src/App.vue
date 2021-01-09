@@ -21,3 +21,10 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+  .page{
+    position:relative;
+    z-index:10;
+  }
+</style>
