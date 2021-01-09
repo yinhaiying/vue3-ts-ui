@@ -7,7 +7,13 @@
         :key="index"
         :class="{ active: activeIndex === index }"
         @click="handleChange(index)"
-        :ref="setItemRef"
+        :ref="
+          (el) => {
+            if (activeIndex === index) {
+              activatedDom = el;
+            }
+          }
+        "
       >
         {{ title }}
       </div>
@@ -34,6 +40,7 @@ import {
   onMounted,
   onUnmounted,
   onUpdated,
+  watchEffect,
 } from "vue";
 import TabPanel from "./tab-panel.vue";
 export default defineComponent({
@@ -57,37 +64,37 @@ export default defineComponent({
     const activatedDom = ref<HTMLDivElement>();
     const indicatorRef = ref<HTMLDivElement>();
     const navRef = ref<HTMLDivElement>();
-    const activeIndex = ref(0);
+    // const activeIndex = ref(0);
     const titles = ref<string[]>([]);
+
     const currentComponent = computed(() => {
       return defaults.find((tag, index) => {
         if (tag.props && tag.props.name === props.active) {
-          activeIndex.value = index;
           return true;
         }
       });
     });
-    const setItemRef = (el: HTMLDivElement) => {
-      if (el.classList.contains("active")) {
-        activatedDom.value = el;
-      }
-    };
+    const activeIndex = computed(() => {
+      let result = 0;
+      defaults.forEach((tag,index) => {
+        if(tag.props && tag.props.name === props.active){
+          result = index;
+        }
+      });
+      return result;
+    })
     // 更新样式
-    const setStyle = () => {
+     watchEffect(() => {
       const width = activatedDom.value?.getBoundingClientRect().width;
       const activatedDomLeft = activatedDom.value?.getBoundingClientRect().left;
       const navLeft = navRef.value?.getBoundingClientRect().left;
-      console.log("activatedDomLeft", activatedDomLeft);
-      console.log("navLeft", navLeft);
       if (indicatorRef.value) {
         indicatorRef.value.style.width = width + "px";
         if (navLeft && activatedDomLeft) {
           indicatorRef.value.style.left = activatedDomLeft - navLeft + "px";
         }
       }
-    };
-    onMounted(setStyle);
-    onUpdated(setStyle);
+    },{flush:"post"});
     if (context.slots.default) {
       defaults = context.slots.default();
       defaults.forEach((tag) => {
@@ -110,7 +117,6 @@ export default defineComponent({
       currentComponent,
       activeIndex,
       handleChange,
-      setItemRef,
       activatedDom,
       indicatorRef,
       navRef,
