@@ -1,18 +1,21 @@
 <template>
-  <div class="topnav">
-    <div class="logo">
-      <div class="logo-icon">
-        <svg class="icon">
-          <use xlink:href="#icon-sea"></use>
-        </svg>
+  <div class="tap-nav-page">
+    <div class="topnav">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg class="icon">
+            <use xlink:href="#icon-sea"></use>
+          </svg>
+        </div>
+        <div class="name">Sea.js</div>
       </div>
-      <div class="name">Sea.js</div>
+      <ul class="menu">
+        <li>菜单1</li>
+        <li>菜单2</li>
+      </ul>
+      <span class="toggleAside" @click="toggleMenu"></span>
     </div>
-    <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
-    </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+
   </div>
 </template>
 
@@ -52,7 +55,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   color: #28d1c9;
-  font-size:16px;
+  font-size: 16px;
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -66,16 +69,16 @@ export default defineComponent({
         height: 32px;
       }
     }
-    .name{
-      font-size:24px;
-      margin-left:10px;
+    .name {
+      font-size: 24px;
+      margin-left: 10px;
     }
   }
   > .menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
-    margin-right:30px;
+    margin-right: 30px;
     > li {
       margin: 0 1em;
     }
@@ -102,4 +105,5 @@ export default defineComponent({
     }
   }
 }
+
 </style>
