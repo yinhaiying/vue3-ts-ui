@@ -6,11 +6,12 @@
       <div class="demo-component">
         <SwitchDemo1></SwitchDemo1>
       </div>
-      <div class="demo-actions">
-        <button>查看代码1</button>
-      </div>
       <div class="demo-code">
         <pre>{{switchDemo1Content}}</pre>
+      </div>
+      <div class="demo-actions">
+        <span class = "action copy">复制代码</span>  
+        <span class = "action view">查看代码</span>  
       </div>
     </div>
   </div>
@@ -40,6 +41,7 @@ $border-color: #d9d9d9;
 .demo {
   border: 1px solid $border-color;
   margin: 16px 0 32px;
+  
   >h2 {
     font-size: 20px;
     padding: 8px 16px;
@@ -50,7 +52,21 @@ $border-color: #d9d9d9;
   }
   &-actions {
     padding: 8px 16px;
-    border-top: 1px dashed $border-color;
+    border-top: 1px solid $border-color;
+    box-sizing: border-box;
+    display:flex;
+    justify-content: flex-end;
+    padding-right:50px;
+    align-items: center;
+    height:48px;
+    .action{
+      color:#45576e;
+      font-size:12px;
+      cursor:pointer;
+      &.copy{
+        margin-right:30px;
+      }
+    }
   }
   &-code {
     padding: 8px 16px;
