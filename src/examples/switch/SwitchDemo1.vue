@@ -1,0 +1,31 @@
+
+<docs>常规用法</docs>
+<template>
+  <Switch
+    v-model:value="checked"
+    :active-color="activeColor"
+    :inactive-color="inactiveColor"
+  ></Switch>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import Switch from "../../lib/switch/Switch.vue";
+export default defineComponent({
+  name: "SwitchDemo",
+  components: {
+    Switch,
+  },
+  props: {},
+  setup() {
+    const checked = ref(true);
+    const activeColor = ref("red");
+    const inactiveColor = ref("green");
+    return {
+      checked,
+      activeColor,
+      inactiveColor,
+    };
+  },
+});
+</script>
