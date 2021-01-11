@@ -7,7 +7,7 @@
         <SwitchDemo1></SwitchDemo1>
       </div>
       <div class="demo-code">
-        <pre>{{switchDemo1Content}}</pre>
+        <pre class = "language-html" v-html = "html"></pre>
       </div>
       <div class="demo-actions">
         <span class = "action copy">复制代码</span>  
@@ -21,7 +21,10 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import SwitchDemo1 from "../examples/switch/SwitchDemo1.vue"
-
+import "prismjs";
+import "prismjs/themes/prism.css";
+const Prism = (window as any).Prism
+console.log("prismjs:",Prism)
 export default defineComponent({
   name: "SwitchDemo",
   components: {
@@ -29,8 +32,10 @@ export default defineComponent({
   },
   setup(){
     const switchDemo1Content = SwitchDemo1.__docs;
+    const html = Prism.highlight(switchDemo1Content, Prism.languages.html, 'html') 
     return {
-      switchDemo1Content
+      Prism,
+      html
     }
   }
 });
