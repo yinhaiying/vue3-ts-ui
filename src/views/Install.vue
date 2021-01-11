@@ -1,17 +1,22 @@
 <template>
-  <div class="page">
-    GetStarted
-  </div>
+  <article class="markdown-body" >
+    <div  v-html = "content"></div>
+  </article>
 </template>
 
 <script lang='ts'>
-import {defineComponent} from 'vue'
+import {defineComponent,ref} from 'vue'
+import install from "../docs/install.md";
 export default defineComponent({
   name:'',
   components: {},
   props: {},
   setup(){
-      console.log("intor")
+      const content = ref("");
+      content.value = install;
+      return {
+        content
+      }
   }
 })
 </script>
