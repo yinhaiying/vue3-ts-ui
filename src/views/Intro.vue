@@ -1,25 +1,14 @@
 <template>
-  <article class="markdown-body" >
-    <div  v-html = "content"></div>
-  </article>
+  <Markdown path = "intro.md"></Markdown>
 </template>
 
 <script lang='ts'>
-import {defineComponent,ref} from 'vue'
-import intro from "../docs/intro.md";
+import {defineComponent} from 'vue'
+import Markdown from "../components/markdown.vue";
 export default defineComponent({
   name:'',
   components: {
+    Markdown
   },
-  props: {},
-  setup(){
-    const content = ref("");
-    content.value = intro;
-    return {
-      content
-    }
-  }
 })
 </script>
-<style lang="scss" scoped>
-</style>
