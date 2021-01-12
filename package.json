@@ -1,6 +1,6 @@
 {
   "name": "sea-ui-vue",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "files": ["lib/*"],
   "main":"lib/sea-ui-vue.umd.min.js",
