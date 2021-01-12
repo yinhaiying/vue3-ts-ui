@@ -1,5 +1,5 @@
 {
-  "name": "vue3-ts-ui",
+  "name": "sea-ui-vue",
   "version": "0.0.1",
   "private": false,
   "files": ["dist/*"],
