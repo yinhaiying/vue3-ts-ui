@@ -8,7 +8,6 @@ module.exports = function (source) {
      const file = fs.readFileSync(path).toString();
     const parsed = baseParse(file).children.find(n => n.tag === 'docs');
     const main = file.split(parsed.loc.source).join('').trim();
-    console.log("main:",main)
     this.callback(
         null,
         `export default function (Component) {

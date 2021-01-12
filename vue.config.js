@@ -1,28 +1,22 @@
-
+const path = require("path");
 module.exports = {
     // publicPath:"./",
     configureWebpack: config => {
-        
-        
+
+
         let myConfig = {
-            module:{}
+            "devtool": "none",
+            output: {
+                filename: "js/index.js",
+                path: path.join(__dirname, "dist")
+            },
+            module: {}
         }
         myConfig.module = {
-            // rules: [
-            //     {
-            //         test: /\.vue$/,
-            //         loader: 'vue-loader',
-            //         options: {
-            //             loaders: {
-            //                 'docs': require.resolve("./src/loaders/docs-loader.js")
-            //             }
-            //         }
-            //     }
-            // ]
-                rules: [{
-                    resourceQuery: /blockType=docs/,
-                    loader: require.resolve("./src/loaders/docs-loader.js"),
-                }]
+            rules: [{
+                resourceQuery: /blockType=docs/,
+                loader: require.resolve("./src/loaders/docs-loader.js"),
+            }]
         }
         return myConfig;
     },
