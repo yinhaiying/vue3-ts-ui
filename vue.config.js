@@ -6,10 +6,6 @@ module.exports = {
 
         let myConfig = {
             "devtool": "none",
-            output: {
-                filename: "js/index.js",
-                path: path.join(__dirname, "dist")
-            },
             module: {}
         }
         myConfig.module = {

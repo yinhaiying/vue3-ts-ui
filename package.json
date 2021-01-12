@@ -2,13 +2,16 @@
   "name": "sea-ui-vue",
   "version": "0.0.1",
   "private": false,
-  "files": ["dist/*"],
-  "main":"dist/js/index.js",
+  "files": ["lib/*"],
+  "main":"lib/sea-ui-vue.umd.min.js",
+  "description": "基于vue3和ts的UI组件库",
+  "keyword": "Vue3 Typescript UI",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:lib":"vue-cli-service build --target lib --name sea-ui-vue --dest lib ./src/lib/index.js"
   },
   "dependencies": {
     "@types/vue-markdown": "^2.2.1",
