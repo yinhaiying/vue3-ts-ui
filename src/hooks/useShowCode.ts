@@ -30,7 +30,7 @@ export const useShowCode = (docs: string) => {
             const result = copy(demoData.__docs, {
                 debug: true,
                 message: "Press #{key} to copy",
-                format: "text/html",
+                format: "text/plain",
             });
             if (result) {
                 alert("复制成功")
