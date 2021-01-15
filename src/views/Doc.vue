@@ -27,33 +27,27 @@
         <div class="item">
           <h3>布局</h3>
           <ol>
-            <li>
+            <!-- <li>
               <router-link to="/doc/switch">Layout 布局</router-link>
             </li>
             <li>
               <router-link to="/doc/button">Divider 分割线</router-link>
-            </li>
+            </li> -->
           </ol>
         </div>
         <div class="item">
           <h3>导航</h3>
           <ol>
-            <li>
+            <!-- <li>
               <router-link to="/doc/switch">Pagination 分页</router-link>
-            </li>
+            </li> -->
           </ol>
         </div>
         <div class="item">
           <h3>数据录入</h3>
           <ol>
             <li>
-              <router-link to="/doc/switch">Input 输入框</router-link>
-            </li>
-            <li>
-              <router-link to="/doc/switch">Radio 单选框</router-link>
-            </li>
-            <li>
-              <router-link to="/doc/switch">checkbox 多选框</router-link>
+              <router-link to="/doc/switch">Switch 开关</router-link>
             </li>
           </ol>
         </div>
@@ -127,8 +121,9 @@ $aside-index: 10;
   }
   > main {
     flex-grow: 1;
-    padding: 16px;
+    padding: 30px 30px 70px;
     background: white;
+    
   }
 }
 aside {

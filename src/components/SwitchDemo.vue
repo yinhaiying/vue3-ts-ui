@@ -4,6 +4,7 @@
     <demo :component="Switch1Demo"></demo>
     <demo :component="Switch2Demo"></demo>
     <demo :component="Switch3Demo"></demo>
+    <Markdown path = "switch.md"></Markdown>
   </div>
 </template>
 

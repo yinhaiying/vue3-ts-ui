@@ -10,15 +10,14 @@
           <pre class="language-html" v-html="demoData.html"></pre>
         </div>
         <div class="demo-actions">
-          <span class="action copy" @click="demoData.handleCopy"
-            >复制代码</span
-          >
-          <span
-            class="action view"
-            @click="demoData.viewCode"
-            v-if="!demoData.isShowCode"
-            >显示代码</span
-          >
+          <svg class="icon">
+            <use xlink:href="#icon-copy"></use>
+          </svg>
+          <span class="action copy" @click="demoData.handleCopy">复制代码</span>
+          <svg class="icon">
+            <use xlink:href="#icon-left-right-arrow"></use>
+          </svg>
+          <span  class="action view" @click="demoData.viewCode" v-if="!demoData.isShowCode">显示代码</span>
           <span class="action view" @click="demoData.viewCode" v-else>隐藏代码</span>
         </div>
       </div>
@@ -67,6 +66,10 @@ $border-color: #d9d9d9;
         padding-right: 50px;
         align-items: center;
         height: 48px;
+        >svg{
+          font-size:12px;
+          margin-right:2px;
+        }
         .action {
           color: #45576e;
           font-size: 12px;
