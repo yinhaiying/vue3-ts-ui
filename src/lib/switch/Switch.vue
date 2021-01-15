@@ -1,6 +1,6 @@
 <template>
   <div class="switch-page">
-    <button :style = "style" :class="{ checked: value }" @click="toggle">
+    <button :style = "style" :class="{ checked: value,disabled:disabled }" @click="toggle" :disabled = "disabled">
       <span></span>
     </button>
   </div>
@@ -24,6 +24,10 @@ export default defineComponent({
     inactiveColor:{
       type:String,
       default:"#ccc"
+    },
+    disabled:{
+      type:Boolean,
+      default:false
     }
   },
   setup(props: ISwitchProps, context) {
@@ -63,6 +67,10 @@ button {
     & > span {
       left: calc(100% - #{$h2} - 2px);
     }
+  }
+  &.disabled{
+    cursor: not-allowed;
+    background: #cfe2ff !important;
   }
 }
 </style>

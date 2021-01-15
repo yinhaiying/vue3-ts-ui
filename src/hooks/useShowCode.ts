@@ -33,8 +33,8 @@ export const useShowCode = (docs: string) => {
                 format: "text/html",
             });
             if (result) {
-                alert("复制成功");
-            };
+                alert("复制成功")
+            }
         },
     });
     return demoData;

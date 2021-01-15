@@ -6,20 +6,20 @@
         <div class="demo-component">
           <component :is = "component" />
         </div>
-        <div class="demo-code" v-if="switch1DemoData.isShowCode">
-          <pre class="language-html" v-html="switch1DemoData.html"></pre>
+        <div class="demo-code" v-if="demoData.isShowCode">
+          <pre class="language-html" v-html="demoData.html"></pre>
         </div>
         <div class="demo-actions">
-          <span class="action copy" @click="switch1DemoData.handleCopy"
+          <span class="action copy" @click="demoData.handleCopy"
             >复制代码</span
           >
           <span
             class="action view"
-            @click="switch1DemoData.viewCode"
-            v-if="!switch1DemoData.isShowCode"
+            @click="demoData.viewCode"
+            v-if="!demoData.isShowCode"
             >显示代码</span
           >
-          <span class="action view" @click="viewCode" v-else>隐藏代码</span>
+          <span class="action view" @click="demoData.viewCode" v-else>隐藏代码</span>
         </div>
       </div>
     </div>
@@ -35,30 +35,15 @@ export default defineComponent({
       component:Object
   },
   setup(props) {
-      console.log("component:",props.component)
-    const switch1DemoData = useShowCode(props.component?.__docs);
-    console.log("switch1DemoData",switch1DemoData)
+    const demoData = useShowCode(props.component?.__docs);
     return {
-        switch1DemoData
+        demoData
     };
   },
 });
 </script>
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
-$font-family: Lato, "Helvetica Neue For Number", -apple-system,
-  BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB",
-  "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  .demo-title {
-    font-size: 28px;
-    color: rgba(0, 0, 0, 0.85);
-    font-weight: 500;
-    line-height: 40px;
-    margin-bottom: 24px;
-    margin-top: 8px;
-    font-family: $font-family;
-  }
   .demo {
     margin: 16px 0 32px;
     > h2 {
