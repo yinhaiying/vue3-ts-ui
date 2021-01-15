@@ -1,5 +1,8 @@
 
-<docs>常规用法</docs>
+<docs>
+  <title>常规用法</title>
+  <desc>用于控制两种状态的开关</desc>
+</docs>
 <template>
   <Switch v-model:value="checked"></Switch>
 </template>

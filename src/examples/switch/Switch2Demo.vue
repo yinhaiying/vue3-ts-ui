@@ -1,5 +1,8 @@
 
-<docs>常规用法</docs>
+<docs>
+  <title>扩展的value类型</title>
+  <desc>设置active-value和inactive-value属性，接受Boolean, String或Number类型的值。</desc>
+</docs>
 <template>
   <Switch
     v-model:value="checked"
