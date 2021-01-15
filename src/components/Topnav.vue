@@ -10,6 +10,12 @@
     </div>
     <ul class="menu">
       <li>
+        <router-link to="/">首页</router-link>
+      </li>
+      <li>
+         <router-link to="/guide/intro">指引</router-link>
+      </li>
+      <li>
         <router-link to="/doc/switch">组件</router-link>
       </li>
     </ul>
