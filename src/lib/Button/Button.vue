@@ -1,5 +1,5 @@
 <template>
-    <button v-bind="$attrs" class = "sea-btn" :class = "`sea-btn-${theme}`">
+    <button v-bind="$attrs" class = "sea-btn" :class = "`sea-btn-${theme} sea-btn-${size}`">
       <slot></slot>
     </button>
 </template>
@@ -14,6 +14,10 @@ export default defineComponent({
       type: String,
       default: "default",
     },
+    size:{
+      type:String,
+      default:"medium"
+    }
   },
   setup(props) {
     console.log("1");

@@ -24,12 +24,7 @@
   }
 }
 
-.btn-lg{
-    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $border-radius-lg);
-}
-.btn-sm{
-    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $border-radius-sm);
-}
+
 
 // 五种类型的按钮：
 .sea-btn-default{
@@ -37,7 +32,7 @@
 }
 
 .sea-btn-primary{
-  @include button-type($primary,$primary,$white)
+  @include button-type($primary,$primary,$white);
 }
 
 .sea-btn-dashed{
@@ -66,6 +61,9 @@
 
 
 
+
+
+
 .sea-btn-link{
   font-weight: $font-weight-normal;
   color:$btn-link-color;
@@ -85,4 +83,15 @@
     color:$btn-link-disabled-color;
     pointer-events:none;
   }
+}
+
+// 三种不同尺寸
+.sea-btn-large{
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $border-radius-lg);
+}
+.sea-btn-small{
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $border-radius-sm);
+}
+.sea-btn-medium{
+    @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
 }

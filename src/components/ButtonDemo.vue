@@ -11,6 +11,11 @@
       <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "success">成功按钮</sea-button></span>
       <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "danger">危险按钮</sea-button></span>
       <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "warning">警告按钮</sea-button></span>
+      <h2>三种尺寸</h2>
+      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "primary">信息按钮</sea-button></span>
+      <span class = "divide"><sea-button @click = "onClick" size = "medium" theme = "primary">信息按钮</sea-button></span>
+      <span class = "divide"><sea-button @click = "onClick" size = "large" theme = "primary">信息按钮</sea-button></span>
+      
   </div>
 </template>
 
