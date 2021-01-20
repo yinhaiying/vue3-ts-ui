@@ -16,7 +16,7 @@ export default defineComponent({
     },
     size:{
       type:String,
-      default:"medium"
+      default:"small"
     }
   },
   setup(props) {

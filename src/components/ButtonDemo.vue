@@ -1,44 +1,43 @@
 <template>
-  <div class="page">
-      <h2>5种类型</h2>
-      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "default">默认按钮</sea-button></span>
-      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "primary">主要按钮</sea-button></span>
-      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "dashed">虚线按钮</sea-button></span>
-      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "text">文字按钮</sea-button></span>
-      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "link">链接按钮</sea-button></span>
-      <h2>四种状态</h2>
-      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "info">信息按钮</sea-button></span>
-      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "success">成功按钮</sea-button></span>
-      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "danger">危险按钮</sea-button></span>
-      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "warning">警告按钮</sea-button></span>
-      <h2>三种尺寸</h2>
-      <span class = "divide"><sea-button @click = "onClick" size = "small" theme = "primary">信息按钮</sea-button></span>
-      <span class = "divide"><sea-button @click = "onClick" size = "medium" theme = "primary">信息按钮</sea-button></span>
-      <span class = "divide"><sea-button @click = "onClick" size = "large" theme = "primary">信息按钮</sea-button></span>
-      
+  <div class="demo-wrapper">
+    <h1 class="demo-title">Button 按钮</h1>
+    <demo :component="Button1Demo"></demo>
+    <demo :component="Button2Demo"></demo>
+    <!-- <Markdown path = "switch.md"></Markdown> -->
   </div>
 </template>
 
-<script lang='ts'>
-import {defineComponent} from 'vue'
+<script lang="ts">
+import { defineComponent } from "vue";
+import Demo from "@/examples/demo.vue";
+import Button1Demo from "@/examples/button/Button1Demo.vue";
+import Button2Demo from "@/examples/button/Button2Demo.vue";
 
 export default defineComponent({
-  name:'',
-  props: {
-
+  name: "ButtonDemo",
+  components: {
+    Demo,
   },
-  setup(props){
-    const onClick = () => {
-      console.log("click");
-    };
+  setup() {
     return {
-      onClick
-    }
-  }
-})
+      Button1Demo,
+      Button2Demo,
+    };
+  },
+});
 </script>
-<style lang="scss" scoped>
-.divide{
-  margin-right:30px;
+
+<style lang="scss">
+$font-family: Lato, "Helvetica Neue For Number", -apple-system,
+  BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB",
+  "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+.demo-title {
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  line-height: 40px;
+  margin-bottom: 24px;
+  margin-top: 8px;
+  font-family: $font-family;
 }
 </style>
