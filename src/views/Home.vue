@@ -2,8 +2,8 @@
   <div class="top-wrapper">
     <top-nav />
     <div class="banner">
-      <h1 class="title">Vue3UI组件库</h1>
-      <h2 class="subtitle">一个厉害的 UI 框架</h2>
+      <h1 class="title">Sea UI</h1>
+      <h2 class="subtitle">基于Vue3的PC端组件库</h2>
       <p class="actions">
         <a href="https://github.com/yinhaiying/vue3-ts-ui">GitHub</a>
         <router-link to="/doc">立即体验</router-link>

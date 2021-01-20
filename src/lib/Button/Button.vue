@@ -1,17 +1,14 @@
 <template>
-  <div class="page">
-    <Button>按钮</Button>
-  </div>
+  <button>
+      <slot></slot>
+  </button>
 </template>
 
 <script lang='ts'>
 import {defineComponent} from 'vue'
-import Button from "@/lib/Button/Button.vue";
 export default defineComponent({
   name:'',
-  components: {
-    Button
-  },
+  components: {},
   props: {},
   setup(props){
     console.log('1')
