@@ -1,10 +1,10 @@
 <template>
-    <button v-bind="$attrs" class = "sea-btn" :class = "`sea-btn-${theme} sea-btn-${size}`">
+    <button v-bind="$attrs" class = "sea-btn" :class = "btnClass">
       <slot></slot>
     </button>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 export default defineComponent({
   inheritAttrs: false,
   name: "sea-button",
@@ -17,10 +17,24 @@ export default defineComponent({
     size:{
       type:String,
       default:"small"
+    },
+    disabled:{
+      type:Boolean,
+      default:false
     }
   },
   setup(props) {
-    console.log("1");
+    const btnClass = computed(() => {
+      const {theme,size,disabled} = props;
+      const classList =[];
+      theme && classList.push(`sea-btn-${theme}`);
+      size && classList.push(`sea-btn-${size}`);
+      disabled && classList.push(`disabled`);
+      return classList.join(" ")
+    })
+    return {
+      btnClass
+    }
   },
 });
 </script>

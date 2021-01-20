@@ -47,9 +47,11 @@ $border-color: #d9d9d9;
     margin: 16px 0 32px;
     > h2 {
       font-size: 20px;
+      color:rgba(0,0,0,.85)
     }
     .demo-desc {
       margin: 8px 0px 24px 0px;
+      color:#666666;
     }
     &-component {
       padding: 16px;

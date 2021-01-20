@@ -8,8 +8,8 @@
 
 <template>
   <div class="page">
-      <sea-button @click = "onClick" size = "small" theme = "primary">信息按钮</sea-button>
-      <sea-button @click = "onClick" size = "medium" theme = "primary">信息按钮</sea-button>
-      <sea-button @click = "onClick" size = "large" theme = "primary">信息按钮</sea-button>
+      <sea-button @click = "onClick" size = "small" theme = "primary">主要按钮</sea-button>
+      <sea-button @click = "onClick" size = "medium" theme = "primary">主要按钮</sea-button>
+      <sea-button @click = "onClick" size = "large" theme = "primary">主要按钮</sea-button>
   </div>
 </template>
