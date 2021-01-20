@@ -34,7 +34,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-, "src/assets/js/bg-animate.js", "src/loaders/docs-loader.js", "src/lib/index.js"  ],
+, "src/assets/js/bg-animate.js", "src/loaders/docs-loader.js", "src/lib/index.ts"  ],
   "exclude": [
     "node_modules"
   ]

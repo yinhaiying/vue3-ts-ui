@@ -1,17 +1,20 @@
 <template>
-  <div>
-    <button v-bind = $attrs>
+    <button v-bind="$attrs" class = "sea-btn" :class = "`sea-btn-${theme}`">
       <slot></slot>
     </button>
-  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
   inheritAttrs: false,
-  name: "",
+  name: "sea-button",
   components: {},
-  props: {},
+  props: {
+    theme: {
+      type: String,
+      default: "primary",
+    },
+  },
   setup(props) {
     console.log("1");
   },
