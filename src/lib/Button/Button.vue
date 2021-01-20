@@ -12,7 +12,7 @@ export default defineComponent({
   props: {
     theme: {
       type: String,
-      default: "primary",
+      default: "default",
     },
   },
   setup(props) {
@@ -20,4 +20,6 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "./_button.scss";
+</style>

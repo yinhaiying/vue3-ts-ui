@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import "./assets/scss/reset.css";
-import "./assets/scss/custom.scss";
-import "./assets/scss/github.markdown.css";
+// import "./assets/scss/reset.css";
+// import "./assets/scss/custom.scss";
+// import "./assets/scss/github.markdown.css";
+
+import "./assets/style/index.scss";
 import router from './router';
 import components from "./lib/index";
 import Markdown from "./components/markdown.vue";
