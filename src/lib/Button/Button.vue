@@ -1,19 +1,20 @@
 <template>
-  <button>
+  <div>
+    <button v-bind = $attrs>
       <slot></slot>
-  </button>
+    </button>
+  </div>
 </template>
-
-<script lang='ts'>
-import {defineComponent} from 'vue'
+<script lang="ts">
+import { defineComponent } from "vue";
 export default defineComponent({
-  name:'',
+  inheritAttrs: false,
+  name: "",
   components: {},
   props: {},
-  setup(props){
-    console.log('1')
-  }
-})
+  setup(props) {
+    console.log("1");
+  },
+});
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

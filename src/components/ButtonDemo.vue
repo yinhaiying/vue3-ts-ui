@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <Button>按钮</Button>
+    <Button @click = "onClick" size = "small">按钮</Button>
   </div>
 </template>
 
@@ -14,7 +14,12 @@ export default defineComponent({
   },
   props: {},
   setup(props){
-    console.log('1')
+    const onClick = () => {
+      console.log("click");
+    };
+    return {
+      onClick
+    }
   }
 })
 </script>
