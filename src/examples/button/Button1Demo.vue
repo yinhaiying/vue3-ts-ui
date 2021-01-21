@@ -8,19 +8,17 @@
 <template>
   <div class="page">
     <div>
-    五种类型：
-        <sea-button @click = "onClick" size = "small" theme = "default">默认按钮</sea-button>
-        <sea-button @click = "onClick" size = "small" theme = "primary">主要按钮</sea-button>
-        <sea-button @click = "onClick" size = "small" theme = "dashed">虚线按钮</sea-button>
-        <sea-button @click = "onClick" size = "small" theme = "text">文字按钮</sea-button>
-        <sea-button @click = "onClick" size = "small" theme = "link">链接按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "default">默认按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "primary">主要按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "dashed">虚线按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "text">文字按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "link">链接按钮</sea-button>
     </div>
     <div style = "margin-top:20px">
-    四种状态：
-        <sea-button @click = "onClick" size = "small" theme = "info">信息按钮</sea-button>
-        <sea-button @click = "onClick" size = "small" theme = "danger">危险按钮</sea-button>
-        <sea-button @click = "onClick" size = "small" theme = "success">成功按钮</sea-button>
-        <sea-button @click = "onClick" size = "small" theme = "warning">警告按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "info">信息按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "danger">危险按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "success">成功按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "warning">警告按钮</sea-button>
     </div>
   </div>
 </template>

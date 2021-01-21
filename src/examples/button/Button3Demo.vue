@@ -8,24 +8,24 @@
   <div class="page">
     <div style = "margin-top:20px">
         <p class = "item">
-            <sea-button @click = "onClick" size = "small" theme = "primary">主要按钮</sea-button>
-            <sea-button @click = "onClick" size = "small" theme = "primary" disabled>主要按钮</sea-button>
+            <sea-button @click = "onClick" size = "small" btnType = "primary">主要按钮</sea-button>
+            <sea-button @click = "onClick" size = "small" btnType = "primary" disabled>主要按钮</sea-button>
         </p>
         <p class = "item">
-            <sea-button @click = "onClick" size = "small" theme = "info">信息按钮</sea-button>
-            <sea-button @click = "onClick" size = "small" theme = "info" disabled>信息按钮</sea-button>
+            <sea-button @click = "onClick" size = "small" btnType = "info">信息按钮</sea-button>
+            <sea-button @click = "onClick" size = "small" btnType = "info" disabled>信息按钮</sea-button>
         </p>
         <p class = "item">
-            <sea-button @click = "onClick" size = "small" theme = "danger">危险按钮</sea-button>
-            <sea-button @click = "onClick" size = "small" theme = "danger" disabled>危险按钮</sea-button>
+            <sea-button @click = "onClick" size = "small" btnType = "danger">危险按钮</sea-button>
+            <sea-button @click = "onClick" size = "small" btnType = "danger" disabled>危险按钮</sea-button>
         </p>
         <p class = "item">
-            <sea-button @click = "onClick" size = "small" theme = "success" >成功按钮</sea-button>
-            <sea-button @click = "onClick" size = "small" theme = "success" disabled>成功按钮</sea-button>
+            <sea-button @click = "onClick" size = "small" btnType = "success" >成功按钮</sea-button>
+            <sea-button @click = "onClick" size = "small" btnType = "success" disabled>成功按钮</sea-button>
         </p>
         <p class = "item">
-            <sea-button @click = "onClick" size = "small" theme = "warning">警告按钮</sea-button>
-            <sea-button @click = "onClick" size = "small" theme = "warning" disabled>警告按钮</sea-button>
+            <sea-button @click = "onClick" size = "small" btnType = "warning">警告按钮</sea-button>
+            <sea-button @click = "onClick" size = "small" btnType = "warning" disabled>警告按钮</sea-button>
         </p>
     </div>
   </div>

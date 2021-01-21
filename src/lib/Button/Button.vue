@@ -1,6 +1,11 @@
 <template>
     <button v-bind="$attrs" class = "sea-btn" :class = "btnClass">
-      <slot></slot>
+      <svg class="icon" v-if = "icon">
+        <use :xlink:href="`#${icon}`"></use>
+      </svg>
+      <span class = "content">
+        <slot></slot>
+      </span>
     </button>
 </template>
 <script lang="ts">
@@ -10,7 +15,7 @@ export default defineComponent({
   name: "sea-button",
   components: {},
   props: {
-    theme: {
+    btnType: {
       type: String,
       default: "default",
     },
@@ -21,16 +26,24 @@ export default defineComponent({
     disabled:{
       type:Boolean,
       default:false
+    },
+    icon:{
+      type:String
+    },
+    iconPosition:{
+      type:String,
+      default:"left"
     }
   },
   setup(props) {
     const btnClass = computed(() => {
-      const {theme,size,disabled} = props;
+      const {btnType,size,disabled,icon,iconPosition} = props;
       const classList =[];
-      theme && classList.push(`sea-btn-${theme}`);
+      btnType && classList.push(`sea-btn-${btnType}`);
       size && classList.push(`sea-btn-${size}`);
       disabled && classList.push(`disabled`);
-      return classList.join(" ")
+      icon && iconPosition && classList.push(`sea-icon-${iconPosition}`)
+      return classList.join(" ");
     })
     return {
       btnClass
@@ -40,4 +53,5 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 @import "./_button.scss";
+
 </style>
