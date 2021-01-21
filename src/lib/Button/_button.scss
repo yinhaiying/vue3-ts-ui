@@ -86,6 +86,10 @@
   @include button-type($success, $success, $white)
 }
 
+// 圆角按钮
+.sea-btn-round{
+  border-radius:20px !important;
+}
 
 
 

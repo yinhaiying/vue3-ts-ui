@@ -7,7 +7,7 @@
     <demo :component="Button4Demo"></demo>
     <demo :component="Button5Demo"></demo>
     <demo :component="Button6Demo"></demo>
-    <!-- <Markdown path = "switch.md"></Markdown> -->
+    <Markdown path = "button.md"></Markdown>
   </div>
 </template>
 

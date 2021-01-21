@@ -20,5 +20,11 @@
         <sea-button @click = "onClick" size = "small" btnType = "success">成功按钮</sea-button>
         <sea-button @click = "onClick" size = "small" btnType = "warning">警告按钮</sea-button>
     </div>
+    <div style = "margin-top:20px">
+        <sea-button @click = "onClick" size = "small" btnType = "info" round>信息按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "danger" round>危险按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "success" round>成功按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "warning" round>警告按钮</sea-button>
+    </div>
   </div>
 </template>

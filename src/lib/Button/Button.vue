@@ -42,13 +42,18 @@ export default defineComponent({
     },
     block:{
       type:Boolean,
+    },
+    round:{
+      type:Boolean,
+      default:false,
     }
   },
   setup(props) {
     const btnClass = computed(() => {
-      const {btnType,size,disabled,icon,iconPosition,block} = props;
+      const {btnType,round,size,disabled,icon,iconPosition,block} = props;
       const classList =[];
       btnType && classList.push(`sea-btn-${btnType}`);
+      round && classList.push(`sea-btn-round`)
       size && classList.push(`sea-btn-${size}`);
       disabled && classList.push(`disabled`);
       icon && iconPosition && classList.push(`sea-icon-${iconPosition}`);
