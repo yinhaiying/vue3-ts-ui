@@ -11,3 +11,4 @@
 | loading | 设置按钮载入状态 | boolean | true/false|false |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean |true/false |false |
 | round | 是否圆角按钮 | boolean |true/false |false |
+| href | btnType为link类型时设置跳转链接 | string |- |- |

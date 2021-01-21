@@ -1,5 +1,10 @@
 <template>
-    <button v-bind="$attrs" class = "sea-btn" :class = "btnClass">
+    <a class = "sea-btn" :href="href" v-if = "btnType ==='link'" :class = "btnClass">
+      <span class = "content">
+        <slot></slot>
+      </span>
+    </a>
+    <button v-bind="$attrs" class = "sea-btn" :class = "btnClass" v-else>
       <svg class="icon-loading" v-if = "loading">
         <use :xlink:href="`#icon-loading`"></use>
       </svg>
@@ -46,6 +51,9 @@ export default defineComponent({
     round:{
       type:Boolean,
       default:false,
+    },
+    href:{
+      type:String
     }
   },
   setup(props) {

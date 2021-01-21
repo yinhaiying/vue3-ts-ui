@@ -12,7 +12,7 @@
         <sea-button @click = "onClick" size = "small" btnType = "primary">主要按钮</sea-button>
         <sea-button @click = "onClick" size = "small" btnType = "dashed">虚线按钮</sea-button>
         <sea-button @click = "onClick" size = "small" btnType = "text">文字按钮</sea-button>
-        <sea-button @click = "onClick" size = "small" btnType = "link">链接按钮</sea-button>
+        <sea-button @click = "onClick" size = "small" btnType = "link" href = "https://www.baidu.com/">链接按钮</sea-button>
     </div>
     <div style = "margin-top:20px">
         <sea-button @click = "onClick" size = "small" btnType = "info">信息按钮</sea-button>
