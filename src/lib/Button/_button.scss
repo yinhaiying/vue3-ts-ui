@@ -29,6 +29,17 @@
     height:24px;
     margin-right:0.2em;
   }
+  @keyframes spin{
+    0%{
+      transform:rotate(0deg);
+    }
+    100%{
+      transform:rotate(360deg);
+    }
+  }
+  .icon-loading{
+    animation:spin 1s infinite linear;
+  }
   &.sea-icon-right{
     >svg{
       order:2;

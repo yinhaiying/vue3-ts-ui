@@ -1,6 +1,9 @@
 <template>
     <button v-bind="$attrs" class = "sea-btn" :class = "btnClass">
-      <svg class="icon" v-if = "icon">
+      <svg class="icon-loading" v-if = "loading">
+        <use :xlink:href="`#icon-loading`"></use>
+      </svg>
+      <svg class="icon" v-if = "icon && !loading">
         <use :xlink:href="`#${icon}`"></use>
       </svg>
       <span class = "content">
@@ -33,6 +36,9 @@ export default defineComponent({
     iconPosition:{
       type:String,
       default:"left"
+    },
+    loading:{
+      type:Boolean,
     }
   },
   setup(props) {
