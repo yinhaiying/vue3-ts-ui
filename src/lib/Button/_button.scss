@@ -122,3 +122,10 @@
 .sea-btn-medium{
     @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
 }
+
+// block类型按钮
+.sea-btn-block{
+  width:100%;
+  margin-top:10px;
+  margin-bottom:12px;
+}

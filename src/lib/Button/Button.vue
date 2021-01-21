@@ -39,16 +39,20 @@ export default defineComponent({
     },
     loading:{
       type:Boolean,
+    },
+    block:{
+      type:Boolean,
     }
   },
   setup(props) {
     const btnClass = computed(() => {
-      const {btnType,size,disabled,icon,iconPosition} = props;
+      const {btnType,size,disabled,icon,iconPosition,block} = props;
       const classList =[];
       btnType && classList.push(`sea-btn-${btnType}`);
       size && classList.push(`sea-btn-${size}`);
       disabled && classList.push(`disabled`);
-      icon && iconPosition && classList.push(`sea-icon-${iconPosition}`)
+      icon && iconPosition && classList.push(`sea-icon-${iconPosition}`);
+      block && classList.push(`sea-btn-block`);
       return classList.join(" ");
     })
     return {

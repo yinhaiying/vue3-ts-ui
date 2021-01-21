@@ -6,6 +6,7 @@
     <demo :component="Button3Demo"></demo>
     <demo :component="Button4Demo"></demo>
     <demo :component="Button5Demo"></demo>
+    <demo :component="Button6Demo"></demo>
     <!-- <Markdown path = "switch.md"></Markdown> -->
   </div>
 </template>
@@ -18,6 +19,7 @@ import Button2Demo from "@/examples/button/Button2Demo.vue";
 import Button3Demo from "@/examples/button/Button3Demo.vue";
 import Button4Demo from "@/examples/button/Button4Demo.vue";
 import Button5Demo from "@/examples/button/Button5Demo.vue";
+import Button6Demo from "@/examples/button/Button6Demo.vue";
 
 export default defineComponent({
   name: "ButtonDemo",
@@ -30,7 +32,8 @@ export default defineComponent({
       Button2Demo,
       Button3Demo,
       Button4Demo,
-      Button5Demo
+      Button5Demo,
+      Button6Demo
     };
   },
 });
