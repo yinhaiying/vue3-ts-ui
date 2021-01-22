@@ -22,6 +22,9 @@
             <li>
               <router-link to="/doc/button">Button 按钮</router-link>
             </li>
+            <li>
+              <router-link to="/doc/icon">Icon 按钮</router-link>
+            </li>
           </ol>
         </div>
         <div class="item">

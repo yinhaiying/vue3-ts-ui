@@ -1,4 +1,5 @@
-import Button from "./button"
+import Button from "./button";
+import Icon from "./icon";
 // export { default as Switch } from './switch/index';
 // export { default as Tabs } from './tabs/tabs.vue';
 // export { default as TabPanel } from './tabs/tab-panel.vue';
@@ -6,7 +7,8 @@ import Button from "./button"
 
 
 export default {
-    Button
+    Button,
+    Icon
 }
 
 

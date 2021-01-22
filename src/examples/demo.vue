@@ -9,7 +9,7 @@
         <div class="demo-code" v-if="demoData.isShowCode">
           <pre class="language-html" v-html="demoData.html"></pre>
         </div>
-        <div class="demo-actions">
+        <div class="demo-actions" v-if = "demoData.isShowAction">
           <svg class="icon">
             <use xlink:href="#icon-copy"></use>
           </svg>
@@ -31,10 +31,15 @@ export default defineComponent({
   name: "",
   components: {},
   props: {
-      component:Object
+      component:Object,
+      isShowAction:{
+        type:Boolean,
+        default:true
+      }
   },
   setup(props) {
-    const demoData = useShowCode(props.component?.__docs);
+    const demoData = useShowCode(props.component?.__docs,props.isShowAction);
+    console.log("props.compoennt:",props.component);
     return {
         demoData
     };

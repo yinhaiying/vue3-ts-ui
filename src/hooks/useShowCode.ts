@@ -13,13 +13,15 @@ interface DataProps {
     __docs: string;
     isShowCode: boolean;
     html: string;
+    isShowAction: boolean;
     viewCode: () => void;
     handleCopy: () => void;
 }
-export const useShowCode = (docs: string) => {
+export const useShowCode = (docs: string,isShowAction: boolean) => {
     const demoData: DataProps = reactive({
         __docs: docs,
         isShowCode: false,
+        isShowAction: isShowAction,
         html: computed(() => {
             return Prism.highlight(demoData.__docs, Prism.languages.html, "html");
         }),
