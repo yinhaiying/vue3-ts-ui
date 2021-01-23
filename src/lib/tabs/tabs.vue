@@ -124,6 +124,12 @@ export default defineComponent({
       },
       { flush: "post" }
     );
+    // 获取tab-panel中的属性值
+    const getTabPanelProp = (name:string) => {
+      return defaults.map((tag) => {
+        return tag.props && tag.props[name];
+      });
+    }
     if (context.slots.default) {
       defaults = context.slots.default();
       defaults.forEach((tag) => {
@@ -132,16 +138,11 @@ export default defineComponent({
         }
       });
       // 获取nav
-      titles.value = defaults.map((tag) => {
-        return tag.props && tag.props.title;
-      });
-      disableds.value = defaults.map((tag) => {
-        return tag.props && tag.props.disabled;
-      });
-      icons.value = defaults.map((tag) => {
-        return tag.props && tag.props.icon;
-      });
+      titles.value = getTabPanelProp("title");
+      disableds.value = getTabPanelProp("disabled");
+      icons.value = getTabPanelProp("icon")
     }
+
 
     const handleChange = (index: number) => {
       context.emit("update:active", defaults[index]?.props?.name);
