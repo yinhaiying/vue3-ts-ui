@@ -42,9 +42,9 @@ import {
   onUpdated,
   watchEffect,
 } from "vue";
-import TabPanel from "./tab-panel.vue";
+import TabPanel from "./Tab-Panel.vue";
 export default defineComponent({
-  name: "",
+  name: "sea-tabs",
   components: {},
   props: {
     active: {
