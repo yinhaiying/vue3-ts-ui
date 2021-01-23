@@ -2,15 +2,15 @@ import Button from "./button";
 import Icon from "./icon";
 import Tabs from "./tabs";
 import TabPanel from "./tab-panel";
+import Dialog from "./dialog";
 // export { default as Switch } from './switch/index';
-// export { default as Dialog } from './dialog/Dialog.vue';
-
 
 export default {
     Button,
     Icon,
     Tabs,
-    TabPanel
+    TabPanel,
+    Dialog
 }
 
 

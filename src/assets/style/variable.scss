@@ -97,19 +97,19 @@ $border-radius-sm:.2rem !default;
 
 // 按钮基本属性
 $btn-font-weight:400;
-$btn-padding-x:.75rem !default;
-$btn-padding-y:.375rem !default;
+$btn-padding-x:16px !default;
+$btn-padding-y:8px !default;
 $btn-font-family:$font-family-base !default;
 $btn-font-size:$font-size-base !default;
 $btn-line-height:$line-height-base !default;
 
 // 不同大小的按钮的padding和font size
-$btn-padding-x-sm:.5rem !default;
-$btn-padding-y-sm:.25rem !default;
+$btn-padding-x-sm:10px !default;
+$btn-padding-y-sm:5px !default;
 $btn-font-size-sm:$font-size-sm !default;
 
-$btn-padding-x-lg:1rem !default;
-$btn-padding-y-lg:.5rem !default;
+$btn-padding-x-lg:10px !default;
+$btn-padding-y-lg:20px !default;
 $btn-font-size-lg:$font-size-lg !default;
 
 // 按钮边框

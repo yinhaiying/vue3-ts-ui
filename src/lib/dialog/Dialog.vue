@@ -12,15 +12,17 @@
                 {{ title }}
               </span>
             </slot>
-            <span @click="handleClose">X</span>
+            <span @click="handleClose" class = "icon-close">
+              <sea-icon type = "icon-close"></sea-icon>
+            </span>
           </header>
           <main>
             <slot name="default"></slot>
           </main>
           <footer>
             <slot name="footer">
-              <button @click="handleCancel">取消</button>
-              <button @click="handleOk">确认</button>
+              <sea-button @click="handleCancel">取消</sea-button>
+              <sea-button @click="handleOk" btnType = "primary">确认</sea-button>
             </slot>
           </footer>
         </div>
@@ -33,7 +35,7 @@
 import { defineComponent, PropType } from "vue";
 type beforeFuncType = () => boolean;
 export default defineComponent({
-  name: "Dialog",
+  name: "sea-dialog",
   components: {},
   props: {
     visibility: Boolean,
@@ -119,9 +121,13 @@ $border-color: #d9d9d9;
       align-items: center;
       justify-content: space-between;
       font-size: 20px;
+      .icon-close{
+        cursor: pointer;
+      }
     }
     & > main {
       padding: 12px 16px;
+      min-height:100px;
     }
     & > footer {
       border-top: 1px solid $border-color;
