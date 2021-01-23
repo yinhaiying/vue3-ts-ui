@@ -125,7 +125,7 @@ export default defineComponent({
       { flush: "post" }
     );
     // 获取tab-panel中的属性值
-    const getTabPanelProp = (name:string) => {
+    const getTabPanelProp = (name: string) => {
       return defaults.map((tag) => {
         return tag.props && tag.props[name];
       });

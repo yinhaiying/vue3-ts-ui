@@ -5,7 +5,7 @@
     <demo :component="Tabs2Demo"></demo>
     <demo :component="Tabs3Demo"></demo>
     <demo :component="Tabs4Demo"></demo>
-    <!-- <Markdown path = "icon.md"></Markdown> -->
+    <Markdown path = "tabs.md"></Markdown>
   </div>
 </template>
 <script lang='ts'>
