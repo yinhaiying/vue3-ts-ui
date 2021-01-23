@@ -5,7 +5,8 @@
         class="sea-tabs-nav-item"
         v-for="(title, index) in titles"
         :key="index"
-        :class="{ active: activeIndex === index }"
+        :class="{ active: activeIndex === index}"
+        :disabled = "disableds[index]"
         @click="handleChange(index)"
         :ref="
           (el) => {
@@ -37,9 +38,6 @@ import {
   VNode,
   RendererNode,
   RendererElement,
-  onMounted,
-  onUnmounted,
-  onUpdated,
   watchEffect,
 } from "vue";
 import TabPanel from "./Tab-Panel.vue";
@@ -51,6 +49,10 @@ export default defineComponent({
       type: String,
       require: true,
     },
+    disabled:{
+      type:Boolean,
+      defualt:true
+    }
   },
   emits: ["update:active"],
   setup(props, context) {
@@ -66,9 +68,10 @@ export default defineComponent({
     const navRef = ref<HTMLDivElement>();
     // const activeIndex = ref(0);
     const titles = ref<string[]>([]);
+    const disableds = ref<boolean[]>([]);
 
     const currentComponent = computed(() => {
-      return defaults.find((tag, index) => {
+      return defaults.find((tag) => {
         if (tag.props && tag.props.name === props.active) {
           return true;
         }
@@ -106,6 +109,9 @@ export default defineComponent({
       titles.value = defaults.map((tag) => {
         return tag.props && tag.props.title;
       });
+      disableds.value = defaults.map((tag) => {
+        return tag.props && tag.props.disabled;
+      })
     }
 
     const handleChange = (index: number) => {
@@ -114,6 +120,7 @@ export default defineComponent({
     return {
       defaults,
       titles,
+      disableds,
       currentComponent,
       activeIndex,
       handleChange,
@@ -148,6 +155,11 @@ $border-bottom:#D8DCE6;
       }
       &.active {
         color: #0364ff;
+      }
+      &[disabled]{
+        cursor:not-allowed !important;
+        color:rgba(0, 0, 0, 0.2) !important;
+        pointer-events:none;
       }
     }
     &-indicator {
