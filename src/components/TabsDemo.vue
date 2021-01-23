@@ -4,6 +4,7 @@
     <demo :component="Tabs1Demo"></demo>
     <demo :component="Tabs2Demo"></demo>
     <demo :component="Tabs3Demo"></demo>
+    <demo :component="Tabs4Demo"></demo>
     <!-- <Markdown path = "icon.md"></Markdown> -->
   </div>
 </template>
@@ -14,6 +15,7 @@ import {ref} from "vue";
 import Tabs1Demo from "@/examples/tabs/Tabs1Demo.vue";
 import Tabs2Demo from "@/examples/tabs/Tabs2Demo.vue";
 import Tabs3Demo from "@/examples/tabs/Tabs3Demo.vue";
+import Tabs4Demo from "@/examples/tabs/Tabs4Demo.vue";
 import Demo from "@/examples/demo.vue";
 export default defineComponent({
   name:'',
@@ -25,7 +27,8 @@ export default defineComponent({
       return {
         Tabs1Demo,
         Tabs2Demo,
-        Tabs3Demo
+        Tabs3Demo,
+        Tabs4Demo
       }
   }
 })

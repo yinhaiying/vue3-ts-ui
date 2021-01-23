@@ -8,8 +8,6 @@
 import {defineComponent} from 'vue'
 export default defineComponent({
   name:'sea-tab-panel',
-  props:{
-  }
 })
 </script>
 <style lang="scss" scoped>

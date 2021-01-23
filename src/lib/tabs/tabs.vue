@@ -1,25 +1,27 @@
 <template>
-  <div class="page">
-    <div class="sea-tabs-nav" ref="navRef">
-      <div
-        class="sea-tabs-nav-item"
-        v-for="(title, index) in titles"
-        :key="index"
-        :class="{ active: activeIndex === index }"
-        :disabled="disableds[index]"
-        @click="handleChange(index)"
-        :ref="
-          (el) => {
-            if (activeIndex === index) {
-              activatedDom = el;
+  <div class="sea-tabs" :class="`sea-tabs-${type}`">
+    <div class="sea-tabs-nav" ref="navRef" :style="style">
+      <div class="sea-tabs-nav-item-wrapper" ref="itemWrapperRef">
+        <div
+          class="sea-tabs-nav-item"
+          v-for="(title, index) in titles"
+          :key="index"
+          :class="{ active: activeIndex === index }"
+          :disabled="disableds[index]"
+          @click="handleChange(index)"
+          :ref="
+            (el) => {
+              if (activeIndex === index) {
+                activatedDom = el;
+              }
             }
-          }
-        "
-      >
-        <template v-if= "icons[index]">
-          <sea-icon type="icon-menu" ></sea-icon>
-        </template>
-        <span>{{ title }}</span>
+          "
+        >
+          <template v-if="icons[index]">
+            <sea-icon type="icon-menu"></sea-icon>
+          </template>
+          <span>{{ title }}</span>
+        </div>
       </div>
       <div class="sea-tabs-nav-indicator" ref="indicatorRef"></div>
     </div>
@@ -52,11 +54,7 @@ export default defineComponent({
       type: String,
       require: true,
     },
-    disabled: {
-      type: Boolean,
-      defualt: true,
-    },
-    icon: {
+    type: {
       type: String,
     },
   },
@@ -72,6 +70,7 @@ export default defineComponent({
     const activatedDom = ref<HTMLDivElement>();
     const indicatorRef = ref<HTMLDivElement>();
     const navRef = ref<HTMLDivElement>();
+    const itemWrapperRef = ref<HTMLDivElement>();
     // const activeIndex = ref(0);
     const titles = ref<string[]>([]);
     const disableds = ref<boolean[]>([]);
@@ -93,6 +92,14 @@ export default defineComponent({
       });
       return result;
     });
+    const style = computed(() => {
+      const { type } = props;
+      if (type) {
+        return {
+          // "borderBottom":"1px solid red"
+        };
+      }
+    });
     // 更新样式
     watchEffect(
       () => {
@@ -100,10 +107,18 @@ export default defineComponent({
         const activatedDomLeft = activatedDom.value?.getBoundingClientRect()
           .left;
         const navLeft = navRef.value?.getBoundingClientRect().left;
-        if (indicatorRef.value) {
+        const navWidth = navRef.value?.getBoundingClientRect().width;
+        const itemWrapperWidth = itemWrapperRef.value?.getBoundingClientRect()
+          .width;
+        if (indicatorRef.value && props.type !== "card") {
           indicatorRef.value.style.width = width + "px";
           if (navLeft && activatedDomLeft) {
             indicatorRef.value.style.left = activatedDomLeft - navLeft + "px";
+          }
+        } else if (indicatorRef.value && props.type === "card") {
+          if (itemWrapperWidth && navWidth) {
+            indicatorRef.value.style.left = itemWrapperWidth + "px";
+            indicatorRef.value.style.width = navWidth - itemWrapperWidth + "px";
           }
         }
       },
@@ -141,7 +156,9 @@ export default defineComponent({
       handleChange,
       activatedDom,
       indicatorRef,
+      itemWrapperRef,
       navRef,
+      style,
     };
   },
 });
@@ -150,12 +167,39 @@ export default defineComponent({
 $color: #666;
 $border-bottom: #d8dce6;
 .sea-tabs {
-  &-nav {
+  &.sea-tabs-card {
+    .sea-tabs-nav {
+      border: 1px solid transparent !important;
+      position: relative;
+      .sea-tabs-nav-indicator {
+        position: absolute;
+        background: #d9d9d9;
+        height: 1px;
+        border: none;
+        bottom: 0;
+      }
+    }
+    .sea-tabs-nav-item {
+      border: 1px solid#d9d9d9;
+      padding: 12px 16px 11px 16px;
+      margin: 0;
+      &.active {
+        border-bottom: none;
+      }
+      &:not(:first-child) {
+        border-left: none;
+      }
+    }
+  }
+  .sea-tabs-nav {
     display: flex;
     color: $color;
     position: relative;
     border-bottom: 1px solid $border-bottom;
-
+    .sea-tabs-nav-item-wrapper {
+      display: flex;
+      align-items: center;
+    }
     &-item {
       padding: 8px 0;
       margin: 0 16px;
@@ -163,9 +207,9 @@ $border-bottom: #d8dce6;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      >svg{
-        width:16px;
-        height:16px;
+      > svg {
+        width: 16px;
+        height: 16px;
       }
       &:first-child {
         margin-left: 0;
