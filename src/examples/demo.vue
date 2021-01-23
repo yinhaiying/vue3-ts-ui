@@ -39,7 +39,6 @@ export default defineComponent({
   },
   setup(props) {
     const demoData = useShowCode(props.component?.__docs,props.isShowAction);
-    console.log("props.compoennt:",props.component);
     return {
         demoData
     };

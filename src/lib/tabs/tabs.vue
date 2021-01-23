@@ -126,7 +126,7 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 $color: #666;
-$border-bottom: #666;
+$border-bottom:#D8DCE6;
 .sea-tabs {
   &-nav {
     display: flex;
@@ -154,14 +154,14 @@ $border-bottom: #666;
       position: absolute;
       left: 0;
       background-color: #0364ff;
-      height: 2px;
+      height: 1px;
       bottom: 0px;
       box-sizing: border-box;
       z-index: 1;
     }
   }
   &-content {
-    padding: 8px 0 0 8px;
+    padding: 18px 0 0 8px;
   }
 }
 </style>
