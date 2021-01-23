@@ -4,7 +4,7 @@
       <!-- 遮罩层 -->
       <div class="dialog-overlay" @click="onClickModal"></div>
       <!-- 内容区域 -->
-      <div class="dialog-wrapper">
+      <div class="dialog-wrapper" :style = "style">
         <div class="dailog-content">
           <header>
             <slot name="title">
@@ -12,7 +12,7 @@
                 {{ title }}
               </span>
             </slot>
-            <span @click="handleClose" class = "icon-close">
+            <span @click="handleClose" class = "icon-close" v-if = "showClose">
               <sea-icon type = "icon-close"></sea-icon>
             </span>
           </header>
@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType,computed } from "vue";
 type beforeFuncType = () => boolean;
 export default defineComponent({
   name: "sea-dialog",
@@ -41,11 +41,18 @@ export default defineComponent({
     visibility: Boolean,
     closeOnClickModal: {
       type: Boolean,
-      deafult: true,
+      default: true,
     },
     title: {
       type: String,
       default: "标题",
+    },
+    showClose:{
+      type:Boolean,
+      default:true
+    },
+    top:{
+      type:String,
     },
     beforeOk: {
       type: Function as PropType<beforeFuncType>,
@@ -79,11 +86,20 @@ export default defineComponent({
         handleClose();
       }
     };
+    const style = computed(() => {
+      if(props.top){
+        return {
+          transform: "translate(-50%, 0)",
+          top:props.top
+        }
+      }
+    })
     return {
       handleClose,
       onClickModal,
       handleCancel,
       handleOk,
+      style
     };
   },
 });
@@ -107,6 +123,7 @@ $border-color: #d9d9d9;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1001;
+  max-width:100vw;
   .dailog-content {
     background: white;
     border-radius: $border-radius;
@@ -114,6 +131,7 @@ $border-color: #d9d9d9;
     min-width: 15em;
     max-width: 90%;
     width: 520px;
+    margin:0 auto;
     & > header {
       padding: 12px 16px;
       border-bottom: 1px solid $border-color;

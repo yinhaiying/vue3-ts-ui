@@ -4,8 +4,12 @@
     <demo :component="Diglog1Demo"></demo>
     <demo :component="Diglog2Demo"></demo>
     <demo :component="Diglog3Demo"></demo>
+    <demo :component="Diglog4Demo"></demo>
+    <demo :component="Diglog5Demo"></demo>
+    <demo :component="Diglog6Demo"></demo>
+    <demo :component="Diglog7Demo"></demo>
     <!-- <demo :component="Icon2Demo" :isShowAction="false"></demo> -->
-    <!-- <Markdown path = "icon.md"></Markdown> -->
+    <Markdown path = "dialog.md"></Markdown>
   </div>
 </template>
 
@@ -15,6 +19,10 @@ import Demo from "@/examples/demo.vue";
 import Diglog1Demo from "@/examples/dialog/Dialog1Demo.vue";
 import Diglog2Demo from "@/examples/dialog/Dialog2Demo.vue";
 import Diglog3Demo from "@/examples/dialog/Dialog3Demo.vue";
+import Diglog4Demo from "@/examples/dialog/Dialog4Demo.vue";
+import Diglog5Demo from "@/examples/dialog/Dialog5Demo.vue";
+import Diglog6Demo from "@/examples/dialog/Dialog6Demo.vue";
+import Diglog7Demo from "@/examples/dialog/Dialog7Demo.vue";
 
 
 export default defineComponent({
@@ -27,6 +35,10 @@ export default defineComponent({
       Diglog1Demo,
       Diglog2Demo,
       Diglog3Demo,
+      Diglog4Demo,
+      Diglog5Demo,
+      Diglog6Demo,
+      Diglog7Demo,
     };
   },
 });

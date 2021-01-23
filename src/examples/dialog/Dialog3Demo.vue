@@ -16,7 +16,6 @@
           <sea-button @click = "handleClose" btnType = "primary">下一步</sea-button>
       </template>
     </sea-dialog>
-
   </div>
 </template>
 <script lang="ts">

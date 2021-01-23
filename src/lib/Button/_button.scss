@@ -13,6 +13,7 @@
   background-image:none;
   border:$btn-border-width solid transparent;
   margin-left:10px;
+  margin-bottom:10px;
   vertical-align:middle;
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
   box-shadow:$btn-box-shadow;
