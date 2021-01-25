@@ -3,6 +3,7 @@ import Icon from "./icon";
 import Tabs from "./tabs";
 import TabPanel from "./tab-panel";
 import Dialog from "./dialog";
+import Message from "./message";
 // export { default as Switch } from './switch/index';
 
 export default {
@@ -10,7 +11,8 @@ export default {
     Icon,
     Tabs,
     TabPanel,
-    Dialog
+    Dialog,
+    Message
 }
 
 

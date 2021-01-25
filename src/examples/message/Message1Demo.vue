@@ -5,5 +5,23 @@
   </desc>
 </docs>
 <template>
-    <sea-message>这是一条信息</sea-message>
+    <sea-button @click = "onClick" btnType = "primary">打开消息提示</sea-button>
+    <sea-message :visibility = "visibility" type = "info">注意啦：这是一条普通信息</sea-message>
 </template>
+<script lang="ts">
+import { defineComponent,ref } from "vue";
+export default defineComponent({
+  name: "sea-message-demo",
+  components: {},
+  setup(props,context) {
+    const visibility = ref(false);
+    const onClick = () => {
+      visibility.value = !visibility.value;
+    }
+    return {
+      visibility,
+      onClick
+    }
+  },
+});
+</script>

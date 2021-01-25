@@ -2,6 +2,7 @@
   <div class="demo-wrapper">
     <h1 class="demo-title">Message 全局提示</h1>
     <demo :component="Message1Demo"></demo>
+    <demo :component="Message2Demo"></demo>
     <!-- <Markdown path = "Message.md"></Markdown> -->
   </div>
 </template>
@@ -10,6 +11,7 @@
 import { defineComponent } from "vue";
 import Demo from "@/examples/demo.vue";
 import Message1Demo from "@/examples/message/Message1Demo.vue";
+import Message2Demo from "@/examples/message/Message2Demo.vue";
 export default defineComponent({
   components: {
     Demo,
@@ -17,6 +19,7 @@ export default defineComponent({
   setup() {
     return {
       Message1Demo,
+      Message2Demo,
     };
   },
 });
