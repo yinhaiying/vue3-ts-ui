@@ -6,6 +6,7 @@ import DocDemo from "../components/DocDemo.vue";
 import SwitchDemo from "../components/SwitchDemo.vue";
 import DialogDemo from "../components/DialogDemo.vue";
 import TabsDemo from "../components/TabsDemo.vue";
+import MessageDemo from "../components/MessageDemo.vue";
 
 import Intro from "../views/Intro.vue";
 import GetStarted from "../views/GetStarted.vue";
@@ -22,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Doc',
     component: () => import('../views/Doc.vue'),
     children: [
-      { path: "", component: DocDemo },
+      { path: "", component: ButtonDemo },
       { path: "get-started", name: "GetStarted", component: GetStarted },
       { path: "install", name: "Install", component: Install },
       { path: "switch", component: SwitchDemo },
@@ -30,6 +31,7 @@ const routes: Array<RouteRecordRaw> = [
       { path: "icon", component: IconDemo },
       { path: "dialog", component: DialogDemo },
       { path: "tabs", component: TabsDemo },
+      { path: "message", component: MessageDemo },
     ],
   },
   {

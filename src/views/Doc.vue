@@ -68,6 +68,9 @@
             <li>
               <router-link to="/doc/dialog">Dialog 弹窗</router-link>
             </li>
+            <li>
+              <router-link to="/doc/message">Message 全局提示</router-link>
+            </li>
           </ol>
         </div>
       </aside>
