@@ -1,23 +1,28 @@
 <template>
-  <Teleport to="body">
-    
-      <div class="sea-message" v-if = "visibility" :class = "classes">
-        <sea-icon :type = "`icon-${type}`"></sea-icon>
+  <Teleport to="body" ref = "body1">
+      <div class="sea-message" v-if = "visibility" :class = "classes" :style = "msgStyle">
+        <Icon :type = "`icon-${type}`"></Icon>
         <slot></slot>
       </div>
   </Teleport>
 </template>
 
 <script lang="ts">
-import { defineComponent,ref ,computed} from "vue";
+type MessageType = 'info' | 'success' | 'error' | 'warning';
+import { defineComponent,computed, PropType} from "vue";
+import Icon from "../icon/index";
 export default defineComponent({
   name: "sea-message",
-  components: {},
+  components: {Icon},
   props: {
     visibility:Boolean,
     type:{
-      type:String,
+      type:String as PropType<MessageType>,
       default:"info"
+    },
+    top:{
+      type:[String ,Number],
+      default:100
     }
   },
   setup(props) {
@@ -26,8 +31,15 @@ export default defineComponent({
       props.type && classList.push(`sea-message-${props.type}`);
       return classList.join(" ");
     });
+
+    const msgStyle = computed(() => {
+      return {
+        top:props.top + "px"
+      }
+    })
     return {
-      classes
+      classes,
+      msgStyle
     }
   },
 });
@@ -43,7 +55,6 @@ body{
 .sea-message{
   position:fixed;
   left:50%;
-  top:100px;
   transform:translateX(-50%);
   z-index:100;
   display:flex;
