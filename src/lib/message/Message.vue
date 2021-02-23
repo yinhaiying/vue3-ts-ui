@@ -9,13 +9,12 @@
 
 <script lang="ts">
 type MessageType = 'info' | 'success' | 'error' | 'warning';
-import { defineComponent,computed, PropType} from "vue";
+import { defineComponent,ref,computed, PropType,onMounted,onUnmounted} from "vue";
 import Icon from "../icon/index";
 export default defineComponent({
   name: "sea-message",
   components: {Icon},
   props: {
-    visibility:Boolean,
     type:{
       type:String as PropType<MessageType>,
       default:"info"
@@ -23,9 +22,15 @@ export default defineComponent({
     top:{
       type:[String ,Number],
       default:100
+    },
+    duration:{
+      type:Number,
+      default:3000
     }
   },
   setup(props) {
+    const visibility = ref(true);
+    let timer: number;
     const classes = computed(() => {
       const classList = [];
       props.type && classList.push(`sea-message-${props.type}`);
@@ -36,8 +41,21 @@ export default defineComponent({
       return {
         top:props.top + "px"
       }
+    });
+    onMounted(() => {
+      if(visibility.value && props.duration){
+        timer = setTimeout(() => {
+          console.log("这里执行了吗")
+          visibility.value = false;
+        },props.duration)
+      }
+    });
+    onUnmounted(() => {
+      clearInterval(timer);
     })
+
     return {
+      visibility,
       classes,
       msgStyle
     }

@@ -6,20 +6,19 @@
 </docs>
 <template>
     <sea-button @click = "onClick" btnType = "primary">打开消息提示</sea-button>
-    <sea-message :visibility = "visibility" type = "info">注意啦：这是一条普通信息</sea-message>
 </template>
 <script lang="ts">
 import { defineComponent,ref } from "vue";
+import createMessage from "../../lib/message/main";
 export default defineComponent({
   name: "sea-message-demo",
   components: {},
   setup(props,context) {
-    const visibility = ref(false);
     const onClick = () => {
-      visibility.value = !visibility.value;
+      console.log("打开消息提示：")
+      createMessage({type:"info",message:"这是一条消息提示"})
     }
     return {
-      visibility,
       onClick
     }
   },

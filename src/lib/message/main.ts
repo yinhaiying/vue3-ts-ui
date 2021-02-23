@@ -19,11 +19,13 @@ const createMessage = (options: optionProps) => {
     console.log("len:",len)
     let verticalOffset = top || 20;
     if (len >= 1){
-        // 多个message时的设置
+        // 多个message时的设置 TODO:这里处理方法不太好
         instanceList.forEach((item,index) => {
             const oMessage = document.getElementsByClassName("sea-message")[index];
-            const offsetHeight = oMessage.getBoundingClientRect().height;
-            verticalOffset += offsetHeight + 16;
+            if(oMessage){
+                const offsetHeight = oMessage.getBoundingClientRect().height;
+                verticalOffset += offsetHeight + 16;
+            }
         })
     }
     const app = createApp({
@@ -32,7 +34,6 @@ const createMessage = (options: optionProps) => {
                 Message,
                 {
                     type: type,
-                    visibility: true,
                     top: verticalOffset
                 },
                 { default: message }

@@ -7,6 +7,7 @@ import { reactive, computed } from "vue";
 import "prismjs";
 import "prismjs/themes/prism.css";
 import copy from "copy-to-clipboard";
+import createMessage from "../lib/message/main"
 const Prism = (window as any).Prism;
 
 interface DataProps {
@@ -35,7 +36,7 @@ export const useShowCode = (docs: string,isShowAction: boolean) => {
                 format: "text/plain",
             });
             if (result) {
-                alert("复制成功")
+                createMessage({ type: "success", message: "复制成功" })
             }
         },
     });
