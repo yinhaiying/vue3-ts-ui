@@ -2,8 +2,6 @@
   "name": "sea-ui-vue",
   "version": "0.0.3",
   "private": false,
-  "files": ["lib/*"],
-  "main":"lib/sea-ui-vue.umd.min.js",
   "description": "基于vue3和ts的UI组件库",
   "keyword": "Vue3 Typescript UI",
   "scripts": {
