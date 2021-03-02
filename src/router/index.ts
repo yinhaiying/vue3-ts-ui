@@ -44,6 +44,10 @@ const routes: Array<RouteRecordRaw> = [
 
     ],
   },
+  {
+    path: '/:pathMatch(.*)',
+    redirect: Home
+  }
 ]
 
 const router = createRouter({

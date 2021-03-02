@@ -15,7 +15,7 @@ export const openDialog = (options: optionsProps) => {
 // 如果我们想要传递参数，需要使用render函数和h函数  
 // h函数返回一个
 const close = (app: App,el: HTMLElement) => {
-  app.unmount(el);
+  app.unmount();
   el.remove();
 }
   const app = createApp({

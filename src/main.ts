@@ -11,7 +11,6 @@ console.log("components:",components)
 import Markdown from "./components/markdown.vue";
 const app = createApp(App);
 app.use(router);
-
 const componentsList = Object.values(components);
 componentsList.map((item) => {
     app.component(item.name, item);
@@ -19,6 +18,5 @@ componentsList.map((item) => {
 
 app.component("Markdown", Markdown);
 app.component("sea-button", components.Button)
-
 
 app.mount('#app');
