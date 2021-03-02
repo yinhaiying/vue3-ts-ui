@@ -11,12 +11,12 @@
     <sea-button @click = "onClick4" btnType = "danger">错误消息</sea-button>
 </template>
 <script lang="ts">
-import { defineComponent,ref } from "vue";
+import { defineComponent} from "vue";
 import createMessage from "../../lib/message/main";
 export default defineComponent({
   name: "sea-message-demo",
   components: {},
-  setup(props,context) {
+  setup() {
     const onClick1 = () => {
       createMessage({type:"info",message:"注意啦：这是一条普通信息"})
     }

@@ -8,12 +8,12 @@
     <sea-button @click = "onClick" btnType = "primary">createMessage</sea-button>
 </template>
 <script lang="ts">
-import { defineComponent,ref } from "vue";
+import { defineComponent } from "vue";
 import createMessage from "../../lib/message/main";
 export default defineComponent({
   name: "sea-message-demo",
   components: {},
-  setup(props,context) {
+  setup() {
     const onClick = () => {
       createMessage({type:"success",message:"成功提示"})
     }
