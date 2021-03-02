@@ -1,6 +1,6 @@
 const path = require("path");
 module.exports = {
-    publicPath: "./vue3-ts-ui",
+    publicPath: "/vue3-ts-ui",
     configureWebpack: config => {
 
 
