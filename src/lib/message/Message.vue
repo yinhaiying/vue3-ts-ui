@@ -10,7 +10,7 @@
 <script lang="ts">
 type MessageType = 'info' | 'success' | 'error' | 'warning';
 import { defineComponent,ref,computed, PropType,onMounted,onUnmounted} from "vue";
-import Icon from "../icon/index";
+import Icon from "../icon/Icon.vue";
 export default defineComponent({
   name: "sea-message",
   components: {Icon},

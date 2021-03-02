@@ -7,6 +7,7 @@ import App from './App.vue'
 import "./assets/style/index.scss";
 import router from './router';
 import components from "./lib/index";
+console.log("components:",components)
 import Markdown from "./components/markdown.vue";
 const app = createApp(App);
 app.use(router);

@@ -1,10 +1,10 @@
-import Button from "./button";
-import Icon from "./icon";
-import Tabs from "./tabs";
-import TabPanel from "./tab-panel";
-import Dialog from "./dialog";
-import Message from "./message";
-// export { default as Switch } from './switch/index';
+import Button from "./button/Button.vue";
+import Icon from "./icon/Icon.vue";
+import Tabs from "./tabs/Tabs.vue";
+import TabPanel from "./tabs/Tab-Panel.vue";
+import Dialog from "./dialog/Dialog.vue";
+import Message from "./message/Message.vue";
+import Switch from './switch/Switch.vue';
 
 export default {
     Button,
@@ -12,7 +12,8 @@ export default {
     Tabs,
     TabPanel,
     Dialog,
-    Message
+    Message,
+    Switch
 }
 
 
